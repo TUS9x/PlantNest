@@ -23,19 +23,17 @@ function Banner() {
     >
         <Stack width={{ base: '40%' , sm: '50%' }}>
             <CardBody>
-                <Heading fontSize={{base:'2xl', sm:'6xl'}} fontWeight='normal'>
+                <Heading fontSize={{base:'3xl', sm:'6xl'}} fontWeight='normal'>
                     Best house <br/>
                     plants varieties
                 </Heading>
-                
-            </CardBody>
-            <CardFooter>
-            <Button colorScheme='teal' variant='outline'>
+                <br/><br/>
+                <Button colorScheme='teal' variant='outline'>
                     <Box fontWeight='bold' fontSize='xl'>
                         <NavLink> Shop now</NavLink>
                     </Box>
-            </Button>    
-            </CardFooter>
+                </Button>
+            </CardBody>
         </Stack>
         <Image
         objectFit='cover'
