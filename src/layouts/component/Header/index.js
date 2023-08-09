@@ -11,7 +11,7 @@ import { CiUser,CiSearch, CiShoppingCart} from 'react-icons/ci';
 function Header() {
     const { isOpen, onOpen, onClose } = useDisclosure();
     return (
-        <Box>
+        <Box width='100%' bg="green.800">
             <Flex
                 maxWidth={'1440px'}
                 mx={'auto'}
@@ -21,7 +21,7 @@ function Header() {
                 wrap="wrap"
                 padding="1rem"
                 color='gray.50'
-                bg="green.800"
+                
             >
     
                 <Button
