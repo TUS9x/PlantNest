@@ -19,6 +19,7 @@ function Banner() {
     direction='row'
     overflow='hidden'
     variant='outline'
+    borderStyle='none'
     >
         <Stack width={{ base: '40%' , sm: '50%' }}>
             <CardBody>
