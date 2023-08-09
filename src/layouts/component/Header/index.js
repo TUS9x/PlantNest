@@ -55,10 +55,13 @@ function Header() {
                         <NavLink to="/category">Category</NavLink>
                     </Box>
                     <Box _hover={{ bg: 'gray.100' }} cursor="pointer" padding={{ base: '1rem' }}>
-                        <NavLink to="/about">About</NavLink>
+                        <NavLink to="/aboutus">About Us</NavLink>
                     </Box>
                     <Box _hover={{ bg: 'gray.100' }} cursor="pointer" padding={{ base: '1rem' }}>
-                        <NavLink to="/pointofsale">Point of Sale</NavLink>{' '}
+                        <NavLink to="/feedback">Feed Back</NavLink>
+                    </Box>
+                    <Box _hover={{ bg: 'gray.100' }} cursor="pointer" padding={{ base: '1rem' }}>
+                        <NavLink to="/contactus">Contact Us</NavLink>
                     </Box>
                 </Flex>
             </Box>

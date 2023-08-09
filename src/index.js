@@ -3,12 +3,24 @@ import ReactDOM from 'react-dom/client';
 import App from '~/App';
 import reportWebVitals from './reportWebVitals';
 import GlobalStyles from './component/GlobalStyles';
+import {ChakraProvider, extendTheme} from "@chakra-ui/react";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const them = extendTheme({
+    styles: {
+      global: {
+        body: {
+          backgroundColor: "#fff",
+        },
+      },
+    },
+  });
 root.render(
     <React.StrictMode>
         <GlobalStyles>
-            <App />
+            <ChakraProvider theme={them}>
+                <App />
+            </ChakraProvider>
         </GlobalStyles>
     </React.StrictMode>,
 );
