@@ -7,7 +7,7 @@ import LogIn from '~/page/LogIn';
 import Feedback from '~/page/Feedback';
 import ContactUs from '~/page/ContactUs';
 import PlantCatalog from '~/page/PlantCatalog';
-
+import AboutUs from '~/page/AboutUs';
 
 // import { HeaderOnly } from '~/layouts';
 
@@ -22,6 +22,7 @@ const publicRoutes = [
     { path: '/login', component: LogIn },
     { path: '/feedback', component: Feedback },
     { path: '/plantcatalogy', component: PlantCatalog },
+    { path: '/aboutus', component: AboutUs }
    
 
     // { path: config.routes.upload, component: Upload, layout: HeaderOnly },

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Belleza&display=swap');
 
 :root {
     --primary: ;
@@ -6,7 +6,7 @@
     --white: #fff;
     --text-color: #161823;
 
-    --font-family: ;
+    --font-family: 'Belleza', sans-serif;
 }
 * {
     margin: 0;
@@ -17,7 +17,7 @@ html {
     font-size: 62.5%;
 }
 body {
-    font-family: var(--font-family);
+    font-family: 'Belleza', sans-serif;
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;

@@ -1,5 +1,5 @@
 function PlantCatalog() {
-    return <h1> PlantCatalog PAGE</h1>;
+    return <h1> Plant Catalog PAGE</h1>;
 }
 
 export default PlantCatalog;
