@@ -9,8 +9,8 @@ function ProductItem({ data }) {
         <NavLink
             as={Link}
             to={{
-                pathname: `/product/@${data.name}`,
-                state: { data: data },
+                pathname: `/product/${data.id}`,
+                // state: { data: data },
             }}
         >
             <Flex alignItems={'center'} justifyContent={'start'} __hover={{ bg: 'red' }}>
