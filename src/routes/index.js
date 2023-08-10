@@ -15,7 +15,7 @@ import AboutUs from '~/page/AboutUs';
 const publicRoutes = [
     { path: '/', component: Home },
     { path: '/category', component: Category },
-    { path: 'productionInfor', component: ProductionInfor },
+    { path: '/product/:productionInfor', component: ProductionInfor },
     { path: '/cart', component: Cart },
     { path: '/contactus', component: ContactUs },
     { path: '/signup', component: SignUp },
