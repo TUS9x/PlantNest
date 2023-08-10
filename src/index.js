@@ -13,7 +13,11 @@ const them = extendTheme({
         },
       },
     },
+    fonts: {
+        body: `'Belleza', sans-serif`,
+    }
   });
+
 root.render(
     <React.StrictMode>
         <GlobalStyles>

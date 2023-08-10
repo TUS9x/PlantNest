@@ -17,10 +17,9 @@ html {
     font-size: 62.5%;
 }
 body {
-    font-family: 'Belleza', sans-serif;
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
     color: var(--text-color);
-    overflow-y: overlay;
+    overflow-y: auto;
 }
