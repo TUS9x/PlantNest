@@ -2,14 +2,15 @@ import PropTypes from 'prop-types';
 import Header from '../component/Header';
 import Sidebar from '~/layouts/component/Sidebar';
 import Footer from '../component/Footer';
+import { Box } from '@chakra-ui/react';
 
 function DefaultLayout({ children }) {
     return (
-        <div>
+        <Box>
             <Header />
-            <div>{children}</div>
+            <Box>{children}</Box>
             <Footer />
-        </div>
+        </Box>
     );
 }
 DefaultLayout.propTypes = {

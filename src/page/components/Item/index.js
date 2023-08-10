@@ -1,17 +1,17 @@
-import { 
-    Flex, 
+import {
+    Flex,
     Image,
     CardFooter,
     Box,
     Card,
     CardBody,
-    Icon
- } from "@chakra-ui/react";
+    Icon, Link,
+} from '@chakra-ui/react';
 import { MdOutlineAddShoppingCart,MdOutlineFavoriteBorder} from 'react-icons/md';
 function Item(product) {
     console.log(product)
     return (
-        <>
+        <Link href={`/product/1`}>
         <Card width='300px'>
             <CardBody>
                 <Image
@@ -21,7 +21,7 @@ function Item(product) {
                     width='300px'
                 />
             </CardBody>
-            
+
             <CardFooter
                 justify='space-between'
                 flexWrap='wrap'
@@ -36,10 +36,10 @@ function Item(product) {
                     </Box>
                     <MdOutlineFavoriteBorder fontSize='3rem' color="green"/>
                     <MdOutlineAddShoppingCart fontSize='3rem'color="green"/>
-                </Flex>   
+                </Flex>
             </CardFooter>
         </Card>
-        </>
+        </Link>
     ) ;
 }
 

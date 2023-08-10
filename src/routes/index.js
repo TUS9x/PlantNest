@@ -15,7 +15,7 @@ import AboutUs from '~/page/AboutUs';
 const publicRoutes = [
     { path: '/', component: Home },
     { path: '/category', component: Category },
-    { path: '/product/:productionInfor', component: ProductionInfor },
+    { path: '/product/:id', component: ProductionInfor },
     { path: '/cart', component: Cart },
     { path: '/contactus', component: ContactUs },
     { path: '/signup', component: SignUp },
@@ -23,7 +23,7 @@ const publicRoutes = [
     { path: '/feedback', component: Feedback },
     { path: '/plantcatalogy', component: PlantCatalog },
     { path: '/aboutus', component: AboutUs }
-   
+
 
     // { path: config.routes.upload, component: Upload, layout: HeaderOnly },
     // { path: config.routes.search, component: Search, layout: null },

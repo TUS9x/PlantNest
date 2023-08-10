@@ -4,7 +4,9 @@ import App from '~/App';
 import reportWebVitals from './reportWebVitals';
 import GlobalStyles from './component/GlobalStyles';
 import {ChakraProvider, extendTheme} from "@chakra-ui/react";
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 const them = extendTheme({
     styles: {
       global: {
@@ -14,6 +16,7 @@ const them = extendTheme({
       },
     },
   });
+
 root.render(
     <React.StrictMode>
         <GlobalStyles>
