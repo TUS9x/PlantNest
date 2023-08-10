@@ -1,5 +1,4 @@
 import Home from '~/page/Home';
-import Category from '~/page/Category';
 import ProductionInfor from '~/page/ProductionInfor';
 import Cart from '~/page/Cart';
 import SignUp from '~/page/SignUp';
@@ -14,7 +13,6 @@ import AboutUs from '~/page/AboutUs';
 //Public routes
 const publicRoutes = [
     { path: '/', component: Home },
-    { path: '/category', component: Category },
     { path: '/product/:productionInfor', component: ProductionInfor },
     { path: '/cart', component: Cart },
     { path: '/contactus', component: ContactUs },

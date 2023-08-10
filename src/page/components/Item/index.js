@@ -4,10 +4,12 @@ import {
     CardFooter,
     Box,
     Card,
-    CardBody
+    CardBody,
+    useToast
  } from "@chakra-ui/react";
 import { MdOutlineAddShoppingCart,MdOutlineFavoriteBorder} from 'react-icons/md';
 function Item(props) {
+    const toast = useToast()
     return (
         <>
         <Card width='300px'>
@@ -34,7 +36,15 @@ function Item(props) {
                         </Box>
                     </Box>
                     <MdOutlineFavoriteBorder fontSize='3rem' color="green"/>
-                    <MdOutlineAddShoppingCart fontSize='3rem'color="green"/>
+                    <MdOutlineAddShoppingCart fontSize='3rem'color="green" onClick={() =>
+                        toast({
+                        title: 'Account created.',
+                        description: "Shopping ADD",
+                        status: 'success',
+                        duration: 9000,
+                        isClosable: true,
+                        })}
+                    />
                 </Flex>   
             </CardFooter>
         </Card>

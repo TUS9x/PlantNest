@@ -72,7 +72,7 @@ function Header() {
                             padding={{ base: '1rem' }}
                             minWidth="140px"
                         >
-                            <NavLink to="/plantcatalog">Plant Catalog</NavLink>
+                            <NavLink to="/plantcatalogy">Plant Catalog</NavLink>
                         </Box>
                         <Box
                             _hover={{ fontWeight: 'bold' }}

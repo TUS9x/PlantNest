@@ -37,8 +37,7 @@ export default function ContactUs() {
           m={{ sm: 5, md: 16, lg: 10 }}
           p={{ sm: 5, md: 5, lg: 16 }}
           fontSize='2xl'
-        >
-            
+        >  
           <Box p={4}>
             <Wrap spacing={{ base: 20, sm: 3, md: 5, lg: 20 }}>
               <WrapItem >
@@ -107,7 +106,7 @@ export default function ContactUs() {
                         />
                       </FormControl>
                       <FormControl id="name" float="right">
-                        <Button variant="solid" bg="#0D74FF" color="white" _hover={{}}>
+                        <Button variant="solid" bg="gray.500" color="white" _hover={{bg:'green.800'}} fontSize='2xl'>
                           Send Message
                         </Button>
                       </FormControl>
