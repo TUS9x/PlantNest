@@ -101,7 +101,7 @@ function Header() {
                     </Flex>
                 </Box>
                 {/* SEARCH */}
-                <Box order={[4, 3]} width={{ base: '100%', md: 'auto', lg: '320px' }}>
+                <Box order={[4, 3]} width={{ base: '100%', md: 'auto', lg: '330px' }}>
                     <Search />
                 </Box>
                 {/* ACTION */}

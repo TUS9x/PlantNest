@@ -6,7 +6,7 @@ function AboutUs() {
         <Box padding={{md:"5rem"}}>
             <Flex flexDirection={{base:'column', md:'row'}} alignItems={'center'}  justifyContent={'space-between'} gap={'4'}>
                 <Box flexBasis={{base:'100%',md:"10%"}} display={'flex'} justifyContent={{base:'start',md:'center'}}>
-                    <Text fontSize={'1.25rem'} fontWeight={'500'} color={'#000'}>OUR SHOP</Text>
+                    <Text fontSize={'1.25rem'} fontWeight={'600'} color={'#000'}>OUR SHOP</Text>
                 </Box>
                 <Box display={'flex'} justifyContent={'space-around'} alignItems={{base:'flex-end',md:'center'}}>
                     <Box flexBasis={{base:'70%',md:"60%"}}>

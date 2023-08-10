@@ -1,4 +1,5 @@
 import AboutUs from "../AboutUs";
+import Products from "../Products";
 import Banner from "../components/Banner";
 import Item from "../components/Item";
 import { Grid, GridItem, Box } from "@chakra-ui/react";
@@ -12,8 +13,9 @@ function Home() {
             <Item/>
             <Item/>
             <Item/>
-            <Item/>
-        </Box>            
+        </Box>
+        <AboutUs/> 
+        <Products/>           
         <AboutUs />
         </>
     );

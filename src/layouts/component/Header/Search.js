@@ -27,6 +27,9 @@ function Search() {
         const fetchApi = async () => {
             setLoading(true);
             const result = await searchServices.search(debounce);
+           
+            console.log('dong 30',debounce)
+
             setSearchProducts(result);
             // console.log('result=',result)
             setLoading(false);
