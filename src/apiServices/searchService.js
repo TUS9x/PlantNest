@@ -1,6 +1,6 @@
 import * as request from '~/utils/httpRequest';
 
-export const search = async (q, type = '') => {
+export const getListUser = async (q, type = '') => {
     try {
         const res = await request.get('users', {
             params: {
@@ -8,7 +8,6 @@ export const search = async (q, type = '') => {
                 type, // type: type,
             },
         });
-        console.log(res)
         return res; //hoặc res.data tuy thuoc vao ket qua tra ve
     } catch (error) {
         console.log(error);
