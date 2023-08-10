@@ -6,29 +6,14 @@ import {
     Stack,
     HStack,
     Text,
-    useColorModeValue,
     Select,
     Box, 
     Image
 } from '@chakra-ui/react';
 import { useState, useEffect, NavLink } from 'react';
 import axios from 'axios';
-import {FiGift} from 'react-icons/fi'
-const QuantitySelect = () => {
-    
-    return (
-      <Select
-        maxW="64px"
-        aria-label="Select quantity"
-        focusBorderColor={useColorModeValue('blue.500', 'blue.200')}
-      >
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-      </Select>
-    )
-}
+import {FiGift} from 'react-icons/fi';
+import {MdOutlineCancel} from 'react-icons/md'
 function Cart() {
     const [cartItems, setCartItems] = useState([]);
     useEffect(() => {
@@ -42,94 +27,97 @@ function Cart() {
         });
       }, []);
 
-    console.log(cartItems)
-    return (
-        <>
-        <h1> CART PAGE</h1>;
-        <Box
-        maxW={{ base: '3xl', lg: '7xl' }}
-        mx="auto"
-        px={{ base: '4', md: '8', lg: '12' }}
-        py={{ base: '6', md: '8', lg: '12' }}
-        >
+  return ( 
+      <Box
+      maxW={{lg: '7xl' }}
+      mx="auto"
+      px={{ base: '4', md: '8' }}
+      py={{ base: '6', md: '8' }}
+      >
         <Stack
             direction={{ base: 'column', lg: 'row' }}
             align={{ lg: 'flex-start' }}
-            spacing={{ base: '8', md: '16' }}
+            spacing={{ base: '8' }}
         >
             <Stack spacing={{ base: '8', md: '10' }} flex="2">
-            <Heading fontSize="2xl" fontWeight="extrabold">
-                Shopping Cart (X items)
-            </Heading>
-            <Stack spacing="6">
-                {cartItems.map((item) => (
-                <Box key="item.id">
-                    <Flex direction={{ base: 'column', md: 'row' }} justify="space-between" align="center">
-                    <Stack direction="row" spacing="5" width="full">
-                        <Image
-                            rounded="lg"
-                            width="120px"
-                            height="120px"
-                            fit="cover"
-                            src={item.url}
-                            alt={item.name}
-                            draggable="false"
-                            loading="lazy"
-                        />
-                        <Box pt="4">
-                            <Stack spacing="0.5">
-                            <Text fontWeight="medium">{item.name}</Text>
-                            <Text color='gray.600' fontSize="sm">
-                                {item.description}
-                            </Text>
-                            </Stack>                           
-                            <HStack spacing="1" mt="3" color='gray.600'>
-                                <FiGift boxSize="4" />
-                                <Link fontSize="sm" textDecoration="underline">
-                                Add gift wrapping
-                                </Link>
-                            </HStack>            
-                        </Box>
-                    </Stack>
-                        <Flex width="full" justify="space-between" display={{ base: 'none', md: 'flex' }}>
-                      <QuantitySelect
-                        value={item.quantity}
-                      />
-                      <Box  >$ {item.price}</Box> 
-                      <Button aria-label={`Delete from cart`} />
-                        </Flex>
-                    </Flex>
-                </Box>
-                ))}
+              <Heading fontSize="2xl" fontWeight="extrabold">
+                  Shopping Cart (X items)
+              </Heading>
+              <Stack spacing="6">
+                  {cartItems.map((item) => (
+                  <Box key="item.id">
+                      <Flex direction={{ base: 'column', md: 'row' }} align="center" width='full'>
+                        <Flex direction="row" justifyContent='space-between'>
+                          <Image
+                              rounded="lg"
+                              width="120px"
+                              height="120px"
+                              fit="cover"
+                              src='https://media.istockphoto.com/id/1372896722/photo/potted-banana-plant-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=bioeNAo7zEqALK6jvyGlxeP_Y7h6j0QjuWbwY4E_eP8='
+                              alt={item.name}
+                          />
+                          <Flex direction='column' justifyContent='space-between' pt="4" width='200px' >
+                              <Stack spacing="0.5" >
+                                <Text  fontWeight="medium" fontSize='2xl'>{item.name}</Text>
+                              </Stack>
+                              <Flex direction='row' justify="space-between" width='full'>
+                                <Select
+                                  maxW="50px"
+                                  aria-label="Select quantity"
+                                  fontSize='xl'
+                                  fontWeight='semibold'
+                                  width='40%'
+                                >
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                                </Select>
+                                <Box >$ {item.price}</Box> 
+                                
+                              </Flex>                           
+                              <HStack spacing="1" mt="3" color='gray.600'>
+                                  <FiGift boxSize="4" />
+                                  <Link fontSize="md" textDecoration="underline" >
+                                  Add Voucher
+                                  </Link>
+                              </HStack>            
+                          </Flex>  
+                          <Box pt='50px' pl='50px' _hover={{ color: 'red.500' }} fontSize='4xl'><MdOutlineCancel /></Box>
+                        </Flex  >    
+                      </Flex>
+                  </Box>
+                  ))}
+              </Stack>
             </Stack>
+            <Stack spacing="8" borderWidth="1px" rounded="lg" padding="8" width="40%" marginTop='50px'>
+              <Heading size="md">Order Summary</Heading>
+              <Stack spacing="6">
+                <Flex justify="space-between">
+                  <Text fontSize="lg" fontWeight="semibold">
+                    Total
+                  </Text>
+                  <Text fontSize="xl" fontWeight="extrabold">
+                    $ PRICE
+                  </Text>
+                </Flex>
+              </Stack>
+              <Button colorScheme="blue" size="lg" fontSize="md">
+                Checkout
+              </Button>
+              <Flex direction="column" align="center" flex="1">
+                <HStack mt="6" fontWeight="semibold">
+                    <p>or</p>
+                    <Link to='/' color='blue.500'>Continue shopping</Link>
+                </HStack>
+              </Flex>
             </Stack>
-  
-            <Flex direction="column" align="center" flex="1">
-            <HStack mt="6" fontWeight="semibold">
-                <p>or</p>
-                <NavLink to='/' color='blue.500'>Continue shopping</NavLink>
-            </HStack>
-            </Flex>
-      </Stack>
-        </Box>
-        <Stack spacing="8" borderWidth="1px" rounded="lg" padding="8" width="full">
-        <Heading size="md">Order Summary</Heading>
-        <Stack spacing="6">
-          <Flex justify="space-between">
-            <Text fontSize="lg" fontWeight="semibold">
-              Total
-            </Text>
-            <Text fontSize="xl" fontWeight="extrabold">
-              $ PRICE
-            </Text>
-          </Flex>
+            
         </Stack>
-        <Button colorScheme="blue" size="lg" fontSize="md">
-          Checkout
-        </Button>
-      </Stack>
-        </>
-    ) 
+        
+      </Box>
+
+  ) 
 }
 
 export default Cart;
