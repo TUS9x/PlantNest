@@ -1,9 +1,9 @@
-import Item from "../components/Item";
+import Products from "../Products";
 function Feedback() {
     return (
         <>
         <h1> Feedback PAGE</h1>;
-        <Item/>
+        <Products/>
         </>
     ) 
 }

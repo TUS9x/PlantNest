@@ -8,7 +8,8 @@ import {
     Icon
  } from "@chakra-ui/react";
 import { MdOutlineAddShoppingCart,MdOutlineFavoriteBorder} from 'react-icons/md';
-function Item() {
+function Item(product) {
+    console.log(product)
     return (
         <>
         <Card width='300px'>
@@ -28,10 +29,10 @@ function Item() {
             >
                 <Flex width='300px' paddingX='5px'>
                     <Box flex='1' variant='ghost' width='10px'>
-                    Name
+                    Name: {product.name}
                     </Box>
                     <Box flex='1' variant='ghost' width='100px'>
-                    Price
+                    Price: {product.price}
                     </Box>
                     <MdOutlineFavoriteBorder fontSize='3rem' color="green"/>
                     <MdOutlineAddShoppingCart fontSize='3rem'color="green"/>
