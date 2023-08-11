@@ -33,8 +33,8 @@ function Header() {
                 align="center"
                 justify="space-between"
                 wrap="wrap"
-                
                 color="gray.50"
+                paddingBottom={{base:'4',md:'0'}}
             >
                 {/* Toggle button cho responsive */}
                 <Button
