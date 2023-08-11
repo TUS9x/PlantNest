@@ -1,7 +1,18 @@
 import { NavLink } from 'react-router-dom';
-import { Flex, Box, Button, useDisclosure, Icon } from '@chakra-ui/react';
+import { 
+    Flex, 
+    Box, 
+    Button, 
+    useDisclosure, 
+    Icon, 
+    Menu,
+    MenuButton,
+    MenuList,
+    MenuItem
+} from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { CiUser, CiShoppingCart } from 'react-icons/ci';
+import { BiChevronDown } from 'react-icons/bi';
 
 import Search from './Search';
 function Header() {
@@ -72,8 +83,22 @@ function Header() {
                             paddingY={{ base: '1rem' }}
                             paddingX={{ base: '0.5rem' }}
                             minWidth="160px"
-                        >
-                            <NavLink to="/plantcatalogy">Plant Catalog</NavLink>
+                        >   
+                            <Menu isLazy>
+                                <NavLink to="/plantcatalogy" >
+                                    <MenuButton rightIcon={<BiChevronDown />} bg="green.800" color='white.50' _hover={{fontWeight: 'semibold'}}>
+                                        Plant Catalog &#8675;
+                                    </MenuButton>
+                                </NavLink>
+                                <MenuList color='green.800'>
+                                    <MenuItem>Flowering</MenuItem>
+                                    <MenuItem>Non-flowering</MenuItem>
+                                    <MenuItem>Indoor</MenuItem>
+                                    <MenuItem>Outdoor</MenuItem>
+                                    <MenuItem>Succulents</MenuItem>
+                                    <MenuItem>Medicinal</MenuItem>
+                                </MenuList>
+                            </Menu>                       
                         </Box>
                         <Box
                             _hover={{ fontWeight: 'semibold' }}
