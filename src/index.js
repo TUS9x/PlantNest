@@ -18,7 +18,6 @@ const them = extendTheme({
         body: `'Belleza', sans-serif`,
     }
   });
-
 root.render(
     <React.StrictMode>
             <GlobalState>
