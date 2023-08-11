@@ -26,8 +26,7 @@ function Cart() {
             setCartItems(response.data);
         });
       }, []);
-
-  return ( 
+return ( 
       <Box
       maxW={{lg: '7xl' }}
       mx="auto"
