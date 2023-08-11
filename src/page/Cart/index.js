@@ -10,7 +10,7 @@ import {
     Box, 
     Image
 } from '@chakra-ui/react';
-import { useState, useEffect, NavLink } from 'react';
+import { useState, useEffect} from 'react';
 import axios from 'axios';
 import {FiGift} from 'react-icons/fi';
 import {MdOutlineCancel} from 'react-icons/md'

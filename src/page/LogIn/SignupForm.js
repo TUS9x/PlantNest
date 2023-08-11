@@ -1,5 +1,5 @@
-import React from 'react';
-import { Box, VStack, Input, Button, FormControl, FormLabel, Heading } from '@chakra-ui/react';
+// import React from 'react';
+// import { Box, VStack, Input, Button, FormControl, FormLabel, Heading } from '@chakra-ui/react';
 
 function SignupForm() {
     // return (
