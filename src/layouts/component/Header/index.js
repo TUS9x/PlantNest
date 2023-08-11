@@ -54,7 +54,7 @@ function Header() {
                     padding={{ base: '1rem' }}
                     order={[2, 1, 1]}
                 >
-                    <NavLink to="/">PLANTNEST</NavLink>
+                    <NavLink to="/"><image src="./nest-white.png" width='100px' /></NavLink>
                 </Box>
 
                 {/* Danh sách các mục menu */}
