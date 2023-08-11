@@ -26,20 +26,28 @@ function Item(props) {
                 flexWrap='wrap'
                 width='300px'
             >
-                <Flex width='300px' paddingX='5px'>
-                    <Box flex='1' variant='ghost' width='10px'>
-                        <Box fontSize='1.3rem'>
-                        Name: {props.name}
+                <Flex width='300px' paddingX='0.2rem'>
+                    <Box flex='1' variant='ghost' width='full'>
+                        <Box fontSize='0.9rem'>
+                        {props.name}
                         </Box>
                         <Box fontWeight='bold'>
                         $ {props.price}
                         </Box>
                     </Box>
-                    <MdOutlineFavoriteBorder fontSize='3rem' color="green"/>
-                    <MdOutlineAddShoppingCart fontSize='3rem'color="green" onClick={() =>
+                    <MdOutlineFavoriteBorder fontSize='2rem' color="green" 
+                        onClick={() =>toast({
+                            title: 'Favorite ADD',
+                            description: "",
+                            status: 'success',
+                            duration: 9000,
+                            isClosable: true,
+                            })}
+                    />
+                    <MdOutlineAddShoppingCart fontSize='2rem'color="green" onClick={() =>
                         toast({
-                        title: 'Account created.',
-                        description: "Shopping ADD",
+                        title: 'Shopping ADD',
+                        description: "",
                         status: 'success',
                         duration: 9000,
                         isClosable: true,

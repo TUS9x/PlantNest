@@ -102,11 +102,11 @@ export default function ContactUs() {
                             borderRadius: 'gray.300',
                           }}
                           placeholder="message"
-                          fontSize='2xl'
+                          fontSize='xl'
                         />
                       </FormControl>
                       <FormControl id="name" float="right">
-                        <Button variant="solid" bg="gray.500" color="white" _hover={{bg:'green.800'}} fontSize='2xl'>
+                        <Button variant="solid" bg="gray.500" color="white" _hover={{bg:'green.800'}} fontSize='xl'>
                           Send Message
                         </Button>
                       </FormControl>

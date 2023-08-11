@@ -58,12 +58,12 @@ function Search() {
                     {...attrs}
                    
                     paddingTop={'8px'}
-                    maxHeight={'min((100vh-96px)-60px,734px)'}
+                    maxHeight={'min((100vh-80px)-60px,734px)'}
                     minHeight={'100%'}
                     borderRadius={'8px'}
                     backgroundColor={'#fff'}
                     boxShadow={'md'}
-                    fontSize={'2xl'}
+                    fontSize={'xl'}
                  
                 >
                     <div>
@@ -82,12 +82,12 @@ function Search() {
                 display={'flex'}
                 position={'relative'}
                 alignItems={'center'}
-                width={{ base: '100%',md:'60s0px', lg: '361px' }}
-                height={'46px'}
+                width={{ base: '100%',md:'50s0px', lg: '250px' }}
+                height={'40px'}
                 backgroundColor={'gray.50'} //mau nen cua o tim kiem
                 borderRadius={'96px'}
                 paddingY={'12px'}
-                paddingLeft={'16px'}
+                paddingLeft={'12px'}
                 _focus={{ outline: '2px solid blue', boxShadow: '0 0 5px blue' }}
             >
                 <Input
@@ -96,7 +96,7 @@ function Search() {
                     flex="1"
                     placeholder="Search Product"
                     spellCheck={false}
-                    fontSize="1.6rem"
+                    fontSize="1rem"
                     height={'46px'}
                     color="black "
                     bg="transparent"
@@ -119,17 +119,18 @@ function Search() {
                 )}
                 <Button
                     width="52px"
-                    height="46px"
+                    height="40px"
                     bg="transparent"
                     cursor={'pointer'}
+                    borderTopRightRadius= '80px'
+                    borderBottomRightRadius= '80px'
                     _hover={{
-                        borderTopRightRadius: '96px',
-                        borderBottomRightRadius: '96px',
-                        backgroundColor: 'yellow.500',
+                        backgroundColor: 'green.500',
+                        color:'white'
                     }}
                 >
                     {/* Search */}
-                    <BsSearch id="search-btn" fontSize="2rem" color="gray" />
+                    <BsSearch id="search-btn" fontSize="2rem" color="gray.800" _hover={{color:'white'}}/>
                 </Button>
             </Box>
         </Tippy>

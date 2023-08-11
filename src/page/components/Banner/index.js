@@ -1,13 +1,10 @@
 import { 
     Image, 
     Box, 
-    Stack, 
-    Flex, 
+    Stack,  
     Card,
     CardBody,
     Heading,
-    Text,
-    CardFooter,
     Button
 } from '@chakra-ui/react'
 import { NavLink } from 'react-router-dom';
@@ -23,13 +20,13 @@ function Banner() {
     >
         <Stack width={{ base: '40%' , sm: '50%' }}>
             <CardBody>
-                <Heading fontSize={{base:'3xl', sm:'6xl'}} fontWeight='normal'>
+                <Heading fontSize={{base:'3xl', sm:'6xl'}} fontWeight='normal' paddingTop='5rem'>
                     Best house <br/>
                     plants varieties
                 </Heading>
                 <br/><br/>
                 <Button colorScheme='teal' variant='outline'>
-                    <Box fontWeight='bold' fontSize='xl'>
+                    <Box fontWeight='bold' fontSize='lg'>
                         <NavLink> Shop now</NavLink>
                     </Box>
                 </Button>

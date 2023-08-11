@@ -27,7 +27,7 @@ function Footer() {
                 >
                     <GridItem
                         color="gray.50"
-                        fontSize={{ base: '2xl', md: '4xl' }}
+                        fontSize={{ base: 'xl', md: '2xl' }}
                         fontWeight="bold"
                         display={'flex'}
                         justifyContent={{ base: 'center', md: 'start' }}
@@ -41,7 +41,7 @@ function Footer() {
                         flexDirection={{ base: 'column', md: 'row' }}
                         justify={'center'}
                         alignItems={{ base: 'center', md: 'center', lg: 'flex-start' }}
-                        fontSize={{ base: '16px', sm: '16px', md: '18px', lg: '2xl', xl: '2xl' }}
+                        fontSize='16px'
                         color="gray.50"
                         gap={6}
                         colSpan={{ md: 3, lg: 1 }}

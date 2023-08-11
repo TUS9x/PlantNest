@@ -15,7 +15,7 @@ function Header() {
                 align="center"
                 justify="space-between"
                 wrap="wrap"
-                padding="1rem"
+                
                 color="gray.50"
             >
                 {/* Toggle button cho responsive */}
@@ -31,7 +31,7 @@ function Header() {
                 </Button>
                 {/* LOGO */}
                 <Box
-                    fontSize={{ base: '2xl', lg: '4xl' }}
+                    fontSize={{ base: '2xl', lg: '3xl' }}
                     fontWeight="bold"
                     padding={{ base: '1rem' }}
                     order={[2, 1, 1]}
@@ -47,8 +47,7 @@ function Header() {
                     alignItems="center"
                     // flexGrow={1}
                     fontWeight={{ base: '400' }}
-                    fontSize={{ base: '3xl', md: '3xl' }}
-                    padding={{ md: '1rem' }}
+                    fontSize='lg'
                     color="white"
                     order={[0, 2]}
                 >
@@ -56,52 +55,57 @@ function Header() {
                         align={{ base: 'left' }}
                         justify={{ base: 'center', md: 'flex-end' }}
                         direction={{ base: 'column', md: 'row' }}
-                        spacing={8}
+                        spacing={7}
                     >
                         <Box
-                            _hover={{ fontWeight: 'bold' }}
+                            _hover={{ fontWeight: 'semibold' }}
                             cursor="pointer"
-                            padding={{ base: '1rem' }}
-                            minWidth="100px"
+                            paddingY={{ base: '1rem' }}
+                            paddingX={{ base: '0.5rem' }}
+                            minWidth="110px"
                         >
                             <NavLink to="/">Home</NavLink>
                         </Box>
                         <Box
-                            _hover={{ fontWeight: 'bold' }}
+                            _hover={{ fontWeight: 'semibold' }}
                             cursor="pointer"
-                            padding={{ base: '1rem' }}
-                            minWidth="140px"
+                            paddingY={{ base: '1rem' }}
+                            paddingX={{ base: '0.5rem' }}
+                            minWidth="160px"
                         >
                             <NavLink to="/plantcatalogy">Plant Catalog</NavLink>
                         </Box>
                         <Box
-                            _hover={{ fontWeight: 'bold' }}
+                            _hover={{ fontWeight: 'semibold' }}
                             cursor="pointer"
-                            padding={{ base: '1rem' }}
-                            minWidth="110px"
+                            paddingY={{ base: '1rem' }}
+                            paddingX={{ base: '0.5rem' }}
+                            minWidth="120px"
                         >
                             <NavLink to="/aboutus">About Us</NavLink>
                         </Box>
                         <Box
                             _hover={{ fontWeight: 'bold' }}
                             cursor="pointer"
-                            padding={{ base: '1rem' }}
-                            minWidth="110px"
+                            paddingY={{ base: '1rem' }}
+                            paddingX={{ base: '0.5rem' }}
+                            minWidth="120px"
                         >
                             <NavLink to="/feedback">Feed Back</NavLink>
                         </Box>
                         <Box
-                            _hover={{ fontWeight: 'bold' }}
+                            _hover={{ fontWeight: 'semibold' }}
                             cursor="pointer"
-                            padding={{ base: '1rem' }}
-                            minWidth="120px"
+                            paddingY={{ base: '1rem' }}
+                            paddingX={{ base: '0.5rem' }}
+                            minWidth="130px"
                         >
                             <NavLink to="/contactus">Contact Us</NavLink>
                         </Box>
                     </Flex>
                 </Box>
                 {/* SEARCH */}
-                <Box order={[4, 3]} width={{ base: '100%', md: 'auto', lg: '330px' }}>
+                <Box order={[4, 3]} width={{ base: '100%', md: 'auto', lg: '250px' }}>
                     <Search />
                 </Box>
                 {/* ACTION */}
@@ -110,14 +114,14 @@ function Header() {
                         {/* <Box _hover={{ bg: 'Green.700' }} cursor="pointer" padding={{ base: '0.5rem' }}>
                             <Icon as={CiSearch} boxSize={{ base: '3rem', md: '3rem' }} />
                         </Box> */}
-                        <Box _hover={{ bg: 'Green.700' }} cursor="pointer" padding={{ base: '0.5rem' }}>
+                        <Box _hover={{ bg: 'Green.700' }} cursor="pointer" >
                             <NavLink to="/login">
-                                <Icon as={CiUser} boxSize={{ base: '3rem', md: '3rem' }} />
+                                <Icon as={CiUser} boxSize='2.5rem' />
                             </NavLink>
                         </Box>
-                        <Box _hover={{ bg: 'Green.700' }} cursor="pointer" padding={{ base: '0.5rem' }}>
+                        <Box _hover={{ bg: 'Green.700' }} cursor="pointer">
                             <NavLink to="/cart">
-                                <Icon as={CiShoppingCart} boxSize={{ base: '3rem', md: '3rem' }} />
+                                <Icon as={CiShoppingCart} boxSize='2.5rem' />
                             </NavLink>
                         </Box>
                     </Flex>

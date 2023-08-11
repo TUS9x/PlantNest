@@ -2,8 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from '~/App';
 import reportWebVitals from './reportWebVitals';
-import GlobalStyles from './component/GlobalStyles';
 import {ChakraProvider, extendTheme} from "@chakra-ui/react";
+import GlobalState from './component/GlobalStates';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const them = extendTheme({
     styles: {
@@ -16,11 +17,11 @@ const them = extendTheme({
   });
 root.render(
     <React.StrictMode>
-        <GlobalStyles>
-            <ChakraProvider theme={them}>
-                <App />
-            </ChakraProvider>
-        </GlobalStyles>
+            <GlobalState>
+              <ChakraProvider theme={them}>
+                  <App />
+              </ChakraProvider>
+            </GlobalState>
     </React.StrictMode>,
 );
 

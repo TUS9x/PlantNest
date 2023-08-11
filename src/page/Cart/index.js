@@ -56,17 +56,16 @@ function Cart() {
                               src='https://media.istockphoto.com/id/1372896722/photo/potted-banana-plant-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=bioeNAo7zEqALK6jvyGlxeP_Y7h6j0QjuWbwY4E_eP8='
                               alt={item.name}
                           />
-                          <Flex direction='column' justifyContent='space-between' pt="4" width='200px' >
+                          <Flex direction='column' justifyContent='space-between' pt="2" width={{base:'200px', md:'400px'}} pl='1rem' >
                               <Stack spacing="0.5" >
                                 <Text  fontWeight="medium" fontSize='2xl'>{item.name}</Text>
                               </Stack>
                               <Flex direction='row' justify="space-between" width='full'>
                                 <Select
-                                  maxW="50px"
+                                  maxW="80px"
                                   aria-label="Select quantity"
-                                  fontSize='xl'
-                                  fontWeight='semibold'
-                                  width='40%'
+                                  fontSize='lg'
+                                  
                                 >
                                   <option value="1">1</option>
                                   <option value="2">2</option>
@@ -97,12 +96,12 @@ function Cart() {
                   <Text fontSize="lg" fontWeight="semibold">
                     Total
                   </Text>
-                  <Text fontSize="xl" fontWeight="extrabold">
+                  <Text fontSize="lg" fontWeight="bold">
                     $ PRICE
                   </Text>
                 </Flex>
               </Stack>
-              <Button colorScheme="blue" size="lg" fontSize="md">
+              <Button colorScheme="green" size="lg" fontSize="xl">
                 Checkout
               </Button>
               <Flex direction="column" align="center" flex="1">
