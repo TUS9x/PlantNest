@@ -1,15 +1,15 @@
 import { NavLink } from 'react-router-dom';
-import { 
-    Flex, 
-    Box, 
-    Button, 
-    useDisclosure, 
-    Icon, 
+import {
+    Flex,
+    Box,
+    Button,
+    useDisclosure,
+    Icon,
     Menu,
     MenuButton,
     MenuList,
     MenuItem,
-    Image
+    Image, Avatar,
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { CiUser, CiShoppingCart } from 'react-icons/ci';
@@ -19,12 +19,20 @@ import MainNavigation from '~/component/GlobalStates/MainNavigation';
 import ShopContext from '~/component/GlobalStates/ShopContext';
 import Context from '~/component/GlobalStates/Context';
 import { useContext } from 'react';
+import LoginModal from '~/component/LoginModal';
+import { useAppContext } from '~/App';
 
 function Header() {
     const context = useContext(ShopContext);
     //const storeContext = useContext(Context)
     //const [state,dispatch] =storeContext
     const { isOpen, onOpen, onClose } = useDisclosure();
+    const { isLogin, setIsLogin } = useAppContext()
+
+    const handleLogout = () => {
+        localStorage.removeItem('isLogin')
+        setIsLogin(false)
+    }
     return (
         <Box width="100%" bg="green.800">
             <Flex
@@ -35,12 +43,12 @@ function Header() {
                 justify="space-between"
                 wrap="wrap"
                 color="gray.50"
-                paddingBottom={{base:'4',md:'0'}}
+                paddingBottom={{ base: '4', md: '0' }}
+                px={{ xl: 0, base: 4 }}
             >
                 {/* Toggle button cho responsive */}
                 <Button
                     onClick={isOpen ? onClose : onOpen}
-                    size={'lg'}
                     colorScheme="gray"
                     aria-label={'Open Menu'}
                     display={{ md: 'none' }}
@@ -56,7 +64,7 @@ function Header() {
                     order={[2, 1, 1]}
                     width='200px'
                 >
-                    <NavLink to="/" bg='gray.400'> <Image src="./nest-white5.png"/></NavLink>
+                    <NavLink to="/" bg='gray.400'> <Image  objectFit={'cover'} src="../nest-white5.png"/></NavLink>
                 </Box>
                 {/* Danh sách các mục menu */}
                 <Box
@@ -66,7 +74,7 @@ function Header() {
                     alignItems="center"
                     // flexGrow={1}
                     fontWeight={{ base: '400' }}
-                    fontSize='lg'
+                    fontSize="lg"
                     color="white"
                     order={[0, 2]}
                 >
@@ -91,10 +99,15 @@ function Header() {
                             paddingY={{ base: '1rem' }}
                             paddingX={{ base: '0.5rem' }}
                             minWidth="160px"
-                        >   
+                        >
                             <Menu isLazy>
-                                <NavLink to="/plantcatalogy" >
-                                    <MenuButton rightIcon={<BiChevronDown />} bg="green.800" color='white.50' _hover={{fontWeight: 'semibold'}}>
+                                <NavLink to="/plantcatalogy">
+                                    <MenuButton
+                                        rightIcon={<BiChevronDown />}
+                                        bg="green.800"
+                                        color="white.50"
+                                        _hover={{ fontWeight: 'semibold' }}
+                                    >
                                         Plant Catalog &#8675;
                                     </MenuButton>
                                 </NavLink>
@@ -109,7 +122,7 @@ function Header() {
                                     <MenuItem>Succulents</MenuItem>
                                     <MenuItem>Medicinal</MenuItem>
                                 </MenuList>
-                            </Menu>                       
+                            </Menu>
                         </Box>
                         <Box
                             _hover={{ fontWeight: 'semibold' }}
@@ -145,24 +158,35 @@ function Header() {
                     <Search />
                 </Box>
                 {/* ACTION */}
-                <Box display={{ base: 'flex', md: 'block' }} order={[3, 4]}>
+                <Box display={{ base: 'flex', md: 'block' }} mt={{ lg: 0, base: 4 }} order={[3, 4]}>
                     <Flex>
                         {/* <Box _hover={{ bg: 'Green.700' }} cursor="pointer" padding={{ base: '0.5rem' }}>
                             <Icon as={CiSearch} boxSize={{ base: '3rem', md: '3rem' }} />
                         </Box> */}
-                        <Box _hover={{ bg: 'Green.700' }} cursor="pointer" >
-                            <NavLink to="/login">
-                                <Icon as={CiUser} boxSize='2.5rem' />
-                            </NavLink>
+                        <Box _hover={{ bg: 'Green.700' }} cursor="pointer">
+                            {/*<NavLink to="/login">*/}
+                            {isLogin ?
+                                <Menu>
+                                    <MenuButton>
+                                        <Avatar name={'Hoang Son'}/>
+                                    </MenuButton>
+                                    <MenuList>
+                                        <MenuItem color={'black'} onClick={handleLogout}>Log out</MenuItem>
+                                    </MenuList>
+                                </Menu>
+                                 : <LoginModal>
+                                <Icon as={CiUser} boxSize="2.5rem" />
+                            </LoginModal>}
+                            {/*</NavLink>*/}
                         </Box>
-                        <Box _hover={{ bg: 'Green.700' }} cursor="pointer" pr='1rem'>
+                        <Box _hover={{ bg: 'Green.700' }} cursor="pointer" pr="1rem">
                             <NavLink to="/cart">
-                                <Box display='flex'> 
-                                    <Icon as={CiShoppingCart} boxSize='2.5rem' />
+                                <Box display="flex">
+                                    <Icon as={CiShoppingCart} boxSize="2.5rem" />
                                     <MainNavigation
-                                        color='red'
+                                        color="red"
                                         cartItemNumber={context.cart.reduce((count, curItem) => {
-                                        return count + curItem.quantity * 1;
+                                            return count + curItem.quantity * 1;
                                         }, 0)}
                                     />
                                 </Box>

@@ -10,7 +10,7 @@ export const search = async (q, type = '') => {
                 type, // type: type,
             },
         });
-        console.log(res)
+        console.log(res);
         return res; //hoặc res.data tuy thuoc vao ket qua tra ve
     } catch (error) {
         console.log(error);

@@ -2,17 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from '~/App';
 import reportWebVitals from './reportWebVitals';
-import {ChakraProvider, extendTheme} from "@chakra-ui/react";
+import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import GlobalState from './component/GlobalStates';
+import './app.css'
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const them = extendTheme({
     styles: {
-      global: {
-        body: {
-          backgroundColor: "#fff",
+        global: {
+            body: {
+                backgroundColor: '#fff',
+            },
         },
-      },
     },
     fonts: {
         body: `'Belleza', sans-serif`,
@@ -20,11 +22,11 @@ const them = extendTheme({
   });
 root.render(
     <React.StrictMode>
-            <GlobalState>
-              <ChakraProvider theme={them}>
-                  <App />
-              </ChakraProvider>
-            </GlobalState>
+        <GlobalState>
+            <ChakraProvider theme={them}>
+                    <App />
+            </ChakraProvider>
+        </GlobalState>
     </React.StrictMode>,
 );
 // If you want to start measuring performance in your app, pass a function

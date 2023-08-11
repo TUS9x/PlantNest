@@ -22,8 +22,7 @@ const publicRoutes = [
     { path: '/login', component: LogIn },
     { path: '/feedback', component: Feedback },
     { path: '/plantcatalogy', component: PlantCatalog },
-    { path: '/aboutus', component: AboutUs }
-   
+    { path: '/aboutus', component: AboutUs },
 
     // { path: config.routes.upload, component: Upload, layout: HeaderOnly },
     // { path: config.routes.search, component: Search, layout: null },

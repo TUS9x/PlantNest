@@ -7,52 +7,58 @@ import { useDebounce } from '~/hooks';
 import * as searchServices from '~/apiServices/searchService';
 import ProductItem from './ProductItem';
 
-
 function Search() {
     const [searchProducts, setSearchProducts] = useState([]);
     const [searchValue, setSearchValue] = useState('');
     const [showResult, setShowResuilt] = useState(true);
     const [loading, setLoading] = useState(false);
-    const [data, setData] = useState([])
+    const [data, setData] = useState([]);
 
     const inputRef = useRef();
     const debounce = useDebounce(searchValue, 500);
 
     const fetchApi = async () => {
-        setLoading(true)
+        setLoading(true);
         const res = await searchServices.getListUser('');
-        setLoading(false)
-        return res
+        setLoading(false);
+        return res;
     };
 
     useEffect(() => {
         (async () => {
             try {
                 const response = await fetchApi();
-                setData(response)
+                setData(response);
             } catch (e) {
-                console.log({ e })
+                console.log({ e });
             }
-        })()
+        })();
     }, []);
 
     const searchData = useMemo(() => {
-        if(!debounce?.length) return data
+        if (!debounce?.length) return data;
         return data.filter((user) => {
-            const nameLowerCase = user.name.toLowerCase()
-            const debounceLowerCase = debounce.toLowerCase()
-            return nameLowerCase.includes(debounceLowerCase)
-        })
-    }, [data, debounce])
+            const nameLowerCase = user.name.toLowerCase();
+            const debounceLowerCase = debounce.toLowerCase();
+            return nameLowerCase.includes(debounceLowerCase);
+        });
+    }, [data, debounce]);
 
     const renderResult = useMemo(() => {
-        if(!searchData?.length) return <Text color={'gray.500'} textAlign={'center'}>No result</Text>
-        return <Stack w={'full'} divider={<StackDivider />} px={6} py={4}>
-            {searchData.map((product)=>(
-                <ProductItem key={product.id} data={product} />
-            ))}
-        </Stack>
-    }, [searchData])
+        if (!searchData?.length)
+            return (
+                <Text color={'gray.500'} textAlign={'center'}>
+                    No result
+                </Text>
+            );
+        return (
+            <Stack w={'full'} divider={<StackDivider />} px={6} py={4}>
+                {searchData.map((product) => (
+                    <ProductItem key={product.id} data={product} />
+                ))}
+            </Stack>
+        );
+    }, [searchData]);
 
     const handleClear = () => {
         setSearchValue('');
@@ -66,22 +72,22 @@ function Search() {
 
     return (
         <Tippy
+            placement={'bottom'}
             visible={debounce?.length > 0}
             interactive
             render={(attrs) => (
                 <Box
                     tabIndex={'-1'}
                     {...attrs}
-
                     paddingTop={'8px'}
                     maxHeight={'min((100vh-80px)-60px,734px)'}
                     minHeight={'100%'}
                     borderRadius={'8px'}
                     backgroundColor={'#fff'}
                     boxShadow={'md'}
-                    fontSize={'xl'}
+                    w={'300px'}
                 >
-                    <Text fontSize="xl" fontWeight={'600'} color={'blackAlpha.500'} mx={2}>
+                    <Text fontWeight={'600'} color={'blackAlpha.500'} mx={2}>
                         Products
                     </Text>
                     {renderResult}
@@ -93,7 +99,7 @@ function Search() {
                 display={'flex'}
                 position={'relative'}
                 alignItems={'center'}
-                width={{ base: '100%',md:'50s0px', lg: '250px' }}
+                width={{ base: '100%', md: '50s0px', lg: '250px' }}
                 height={'40px'}
                 backgroundColor={'gray.50'} //mau nen cua o tim kiem
                 borderRadius={'96px'}
@@ -133,15 +139,15 @@ function Search() {
                     height="40px"
                     bg="transparent"
                     cursor={'pointer'}
-                    borderTopRightRadius= '80px'
-                    borderBottomRightRadius= '80px'
+                    borderTopRightRadius="80px"
+                    borderBottomRightRadius="80px"
                     _hover={{
                         backgroundColor: 'green.500',
-                        color:'white'
+                        color: 'white',
                     }}
                 >
                     {/* Search */}
-                    <BsSearch id="search-btn" fontSize="2rem" color="gray.800" _hover={{color:'white'}}/>
+                    <BsSearch id="search-btn" fontSize="2rem" color="gray.800" _hover={{ color: 'white' }} />
                 </Button>
             </Box>
         </Tippy>

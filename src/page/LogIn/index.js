@@ -5,7 +5,7 @@ function LogIn() {
     return (
         <ChakraProvider>
             {/* <SignupForm /> */}
-            <LoginForm />       
+            <LoginForm />
         </ChakraProvider>
     );
 }

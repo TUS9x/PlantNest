@@ -3,6 +3,7 @@ import axios from 'axios';
 import Item from '../components/Item';
 import { Box, Button, Flex } from '@chakra-ui/react';
 import { last, orderBy } from 'lodash';
+import { useAppContext } from '~/App';
 
 const styleSearch = { height: '20px', width: '100%', display: 'flex', alignItems: 'center', padding: '' };
 const widthLine = 200; // px
