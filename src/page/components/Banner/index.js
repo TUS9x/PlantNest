@@ -11,7 +11,6 @@ import { NavLink } from 'react-router-dom';
 function Banner() {
     return (
     <>
-    <h1> Banner PAGE</h1>
     <Card
     direction='row'
     overflow='hidden'
