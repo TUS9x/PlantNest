@@ -8,7 +8,8 @@ import {
     Menu,
     MenuButton,
     MenuList,
-    MenuItem
+    MenuItem,
+    Image
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { CiUser, CiShoppingCart } from 'react-icons/ci';
@@ -53,8 +54,10 @@ function Header() {
                     fontWeight="bold"
                     padding={{ base: '1rem' }}
                     order={[2, 1, 1]}
+                    width='200px'
                 >
-                    <NavLink to="/"><image src="./nest-white.png" width='100px' /></NavLink>
+                   
+                    <NavLink to="/" bg='gray.400'> <Image src="./nest-white4.png"/></NavLink>
                 </Box>
 
                 {/* Danh sách các mục menu */}
