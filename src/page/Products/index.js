@@ -10,7 +10,6 @@ function Products() {
     const [products, setProducts] = useState([]);
     const [limit, setLimit] = useState(8);
     const shouldShowButton = limit <= products.length;
-    
     const [maxPrice, setMaxPrice] = useState(1);
     const [priceOnMove, setPriceOnMove] = useState(0);
     const [priceOnPoint, setPriceOnPoint] = useState(0);
