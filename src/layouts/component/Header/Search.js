@@ -79,15 +79,7 @@ function Search() {
                     borderRadius={'8px'}
                     backgroundColor={'#fff'}
                     boxShadow={'md'}
-<<<<<<< Updated upstream
                     fontSize={'xl'}
-                 
-=======
-                    fontSize={'2xl'}
-                    w={'400px'}
-                    minH={24}
-
->>>>>>> Stashed changes
                 >
                     <Text fontSize="xl" fontWeight={'600'} color={'blackAlpha.500'} mx={2}>
                         Products
