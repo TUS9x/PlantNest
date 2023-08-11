@@ -41,6 +41,7 @@ function Products() {
                     _hover={{ bg: 'green.800' }}
                     width={40}
                     onClick={() => setLimit(limit * 2)}
+                    mb='1rem'
                 >
                     Show more
                 </Button>
