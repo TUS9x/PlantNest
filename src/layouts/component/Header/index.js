@@ -52,14 +52,12 @@ function Header() {
                 <Box
                     fontSize={{ base: '2xl', lg: '3xl' }}
                     fontWeight="bold"
-                    padding={{ base: '1rem' }}
+                    padding={{ base: '0.5rem' }}
                     order={[2, 1, 1]}
                     width='200px'
                 >
-                   
-                    <NavLink to="/" bg='gray.400'> <Image src="./nest-white4.png"/></NavLink>
+                    <NavLink to="/" bg='gray.400'> <Image src="./nest-white5.png"/></NavLink>
                 </Box>
-
                 {/* Danh sách các mục menu */}
                 <Box
                     display={{ base: isOpen ? 'block' : 'none', md: 'flex' }}
@@ -101,6 +99,9 @@ function Header() {
                                     </MenuButton>
                                 </NavLink>
                                 <MenuList color='green.800'>
+                                    <MenuItem>
+                                        <NavLink to='/products'>All Products</NavLink>
+                                    </MenuItem>
                                     <MenuItem>Flowering</MenuItem>
                                     <MenuItem>Non-flowering</MenuItem>
                                     <MenuItem>Indoor</MenuItem>
