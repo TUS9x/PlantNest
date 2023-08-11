@@ -35,11 +35,11 @@ function Products() {
             </Box>
             {shouldShowButton && (
                 <Button
-                    size="lg"
+                    size="md"
                     color="white"
                     bg="green.800"
-                    _hover={{ bg: 'green.600' }}
-                    width={64}
+                    _hover={{ bg: 'green.800' }}
+                    width={40}
                     onClick={() => setLimit(limit * 2)}
                 >
                     Show more

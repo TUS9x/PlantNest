@@ -4,17 +4,17 @@ import { Card } from '@chakra-ui/react';
 function AboutUs() {
     return (
         <Box padding={{md:"5rem"}}>
-            <Flex flexDirection={{base:'column', md:'row'}} alignItems={'center'}  justifyContent={'space-between'} gap={'4'}>
+            <Flex flexDirection='row' alignItems={'center'}  justifyContent={'space-between'} gap={'4'}>
                 <Box flexBasis={{base:'100%',md:"10%"}} display={'flex'} justifyContent={{base:'start',md:'center'}}>
-                    <Text fontSize={'1.25rem'} fontWeight={'600'} color={'#000'}>OUR SHOP</Text>
+                    <Text fontSize={'1rem'} fontWeight={'500'} color={'#000'}>OUR SHOP</Text>
                 </Box>
                 <Box display={'flex'} justifyContent={'space-around'} alignItems={{base:'flex-end',md:'center'}}>
                     <Box flexBasis={{base:'70%',md:"60%"}}>
-                        <Text fontSize={'3rem'} fontWeight={'500'} color={'#000'}>Here are the best seller</Text>
-                        <Text fontSize={'3rem'} fontWeight={'500'} color={'#000'}>from our varieties</Text> 
+                        <Text fontSize={'2rem'} fontWeight={'500'} color={'#000'}>Here are the best seller</Text>
+                        <Text fontSize={'2rem'} fontWeight={'500'} color={'#000'}>from our varieties</Text> 
                     </Box>
                     <Box flexBasis={{base:'30%',md:"40%"}}>
-                        <Button width={'8.375rem'} height={'2.5rem'} css={{ backgroundColor: "black", color: "white" }}>See all</Button>
+                        <Button width={'6rem'} height={'2rem'} css={{ backgroundColor: "black", color: "white" }}>See all</Button>
                     </Box>
                 </Box>
                 <Box flexBasis="40%">
