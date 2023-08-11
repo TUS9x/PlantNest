@@ -13,9 +13,16 @@ import {
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { CiUser, CiShoppingCart } from 'react-icons/ci';
 import { BiChevronDown } from 'react-icons/bi';
-
 import Search from './Search';
+import MainNavigation from '~/component/GlobalStates/MainNavigation';
+import ShopContext from '~/component/GlobalStates/ShopContext';
+import Context from '~/component/GlobalStates/Context';
+import { useContext } from 'react';
+
 function Header() {
+    const context = useContext(ShopContext);
+    //const storeContext = useContext(Context)
+    //const [state,dispatch] =storeContext
     const { isOpen, onOpen, onClose } = useDisclosure();
     return (
         <Box width="100%" bg="green.800">
@@ -144,9 +151,17 @@ function Header() {
                                 <Icon as={CiUser} boxSize='2.5rem' />
                             </NavLink>
                         </Box>
-                        <Box _hover={{ bg: 'Green.700' }} cursor="pointer">
+                        <Box _hover={{ bg: 'Green.700' }} cursor="pointer" pr='1rem'>
                             <NavLink to="/cart">
-                                <Icon as={CiShoppingCart} boxSize='2.5rem' />
+                                <Box display='flex'> 
+                                    <Icon as={CiShoppingCart} boxSize='2.5rem' />
+                                    <MainNavigation
+                                        color='red'
+                                        cartItemNumber={context.cart.reduce((count, curItem) => {
+                                        return count + curItem.quantity * 1;
+                                        }, 0)}
+                                    />
+                                </Box>
                             </NavLink>
                         </Box>
                     </Flex>

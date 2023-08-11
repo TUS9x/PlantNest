@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React,{ useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 import Item from '../components/Item';
 import { Box, Button, Flex } from '@chakra-ui/react';
@@ -7,7 +7,7 @@ function Products() {
     const [products, setProducts] = useState([]);
     const [limit, setLimit] = useState(8);
     const shouldShowButton = limit <= products.length;
-
+    
     useEffect(() => {
         axios({
             method: 'get',
