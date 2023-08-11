@@ -13,7 +13,7 @@ import AboutUs from '~/page/AboutUs';
 //Public routes
 const publicRoutes = [
     { path: '/', component: Home },
-    { path: '/product/:productionInfor', component: ProductionInfor },
+    { path: '/product/:id', component: ProductionInfor },
     { path: '/cart', component: Cart },
     { path: '/contactus', component: ContactUs },
     { path: '/signup', component: SignUp },

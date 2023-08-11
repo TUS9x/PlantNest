@@ -1,79 +1,98 @@
-import React from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import Tippy from '@tippyjs/react/headless';
-import { useState, useEffect, useRef } from 'react';
 import { FaRegCircleXmark } from 'react-icons/fa6';
 import { BsSearch } from 'react-icons/bs';
-import { Box, Button, Input, Spinner, Text } from '@chakra-ui/react';
-
+import { Box, Button, Input, Spinner, Stack, StackDivider, Text } from '@chakra-ui/react';
 import { useDebounce } from '~/hooks';
 import * as searchServices from '~/apiServices/searchService';
 import ProductItem from './ProductItem';
+
 
 function Search() {
     const [searchProducts, setSearchProducts] = useState([]);
     const [searchValue, setSearchValue] = useState('');
     const [showResult, setShowResuilt] = useState(true);
     const [loading, setLoading] = useState(false);
+    const [data, setData] = useState([])
 
     const inputRef = useRef();
     const debounce = useDebounce(searchValue, 500);
 
+    const fetchApi = async () => {
+        setLoading(true)
+        const res = await searchServices.getListUser('');
+        setLoading(false)
+        return res
+    };
+
     useEffect(() => {
-        if (!debounce.trim()) {
-            setSearchProducts([]);
-            return;
-        }
+        (async () => {
+            try {
+                const response = await fetchApi();
+                setData(response)
+            } catch (e) {
+                console.log({ e })
+            }
+        })()
+    }, []);
 
-        const fetchApi = async () => {
-            setLoading(true);
-            const result = await searchServices.search(debounce);
-           
-            console.log('dong 30',debounce)
+    const searchData = useMemo(() => {
+        if(!debounce?.length) return data
+        return data.filter((user) => {
+            const nameLowerCase = user.name.toLowerCase()
+            const debounceLowerCase = debounce.toLowerCase()
+            return nameLowerCase.includes(debounceLowerCase)
+        })
+    }, [data, debounce])
 
-            setSearchProducts(result);
-            // console.log('result=',result)
-            setLoading(false);
-        };
-        fetchApi();
-
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [debounce]);
+    const renderResult = useMemo(() => {
+        if(!searchData?.length) return <Text color={'gray.500'} textAlign={'center'}>No result</Text>
+        return <Stack w={'full'} divider={<StackDivider />} px={6} py={4}>
+            {searchData.map((product)=>(
+                <ProductItem key={product.id} data={product} />
+            ))}
+        </Stack>
+    }, [searchData])
 
     const handleClear = () => {
         setSearchValue('');
         inputRef.current.focus();
         setSearchProducts([]);
     };
+
     const handleHideResuilt = () => {
         setShowResuilt(false);
     };
 
     return (
         <Tippy
-            visible={showResult && searchProducts.length > 0}
+            visible={debounce?.length > 0}
             interactive
             render={(attrs) => (
                 <Box
                     tabIndex={'-1'}
                     {...attrs}
-                   
+
                     paddingTop={'8px'}
                     maxHeight={'min((100vh-80px)-60px,734px)'}
                     minHeight={'100%'}
                     borderRadius={'8px'}
                     backgroundColor={'#fff'}
                     boxShadow={'md'}
+<<<<<<< Updated upstream
                     fontSize={'xl'}
                  
+=======
+                    fontSize={'2xl'}
+                    w={'400px'}
+                    minH={24}
+
+>>>>>>> Stashed changes
                 >
-                    <div>
-                        <Text fontSize="xl" fontWeight={'600'} color={'blackAlpha.500'}>
-                            Products
-                        </Text>
-                        {searchProducts.map((product)=>(
-                            <ProductItem key={product.id} data ={product} />
-                        ))}
-                    </div>
+                    <Text fontSize="xl" fontWeight={'600'} color={'blackAlpha.500'} mx={2}>
+                        Products
+                    </Text>
+                    {renderResult}
                 </Box>
             )}
             onClickOutside={handleHideResuilt}
@@ -136,5 +155,4 @@ function Search() {
         </Tippy>
     );
 }
-
 export default Search;

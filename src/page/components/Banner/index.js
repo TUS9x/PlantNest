@@ -4,8 +4,8 @@ import {
     Stack,  
     Card,
     CardBody,
-    Heading,
-    Button
+    Heading,  
+    Button,
 } from '@chakra-ui/react'
 import { NavLink } from 'react-router-dom';
 function Banner() {
