@@ -9,7 +9,8 @@ import {
     MenuButton,
     MenuList,
     MenuItem,
-    Image, Avatar,
+    Image,
+    Avatar,
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon, ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons';
 import { CiUser, CiShoppingCart } from 'react-icons/ci';
@@ -28,13 +29,13 @@ function Header() {
     //const storeContext = useContext(Context)
     //const [state,dispatch] =storeContext
     const { isOpen, onOpen, onClose } = useDisclosure();
-    const { isOpenCatalog, onOpenCatalog, onCloseCatalog } = useDisclosure()
-    const { isLogin, setIsLogin } = useAppContext()
+    const { isOpenCatalog, onOpenCatalog, onCloseCatalog } = useDisclosure();
+    const { isLogin, setIsLogin } = useAppContext();
 
     const handleLogout = () => {
-        localStorage.removeItem('isLogin')
-        setIsLogin(false)
-    }
+        localStorage.removeItem('isLogin');
+        setIsLogin(false);
+    };
     return (
         <Box width="100%" bg="green.800">
             <Flex
@@ -62,11 +63,14 @@ function Header() {
                 <Box
                     fontSize={{ base: '2xl', lg: '3xl' }}
                     fontWeight="bold"
-                    paddingY= '0.5rem' 
+                    paddingY="0.5rem"
                     order={[2, 1, 1]}
-                    width='200px'
+                    width="200px"
                 >
-                    <NavLink to="/" bg='gray.400'> <Image  objectFit={'cover'} src="../nest-white5.png"/></NavLink>
+                    <NavLink to="/" bg="gray.400">
+                        {' '}
+                        <Image objectFit={'cover'} src="../nest-white5.png" />
+                    </NavLink>
                 </Box>
                 {/* Danh sách các mục menu */}
                 <Box
@@ -105,31 +109,42 @@ function Header() {
                             onMouseLeave={() => setIsMenuOpen(false)}
                         >
                             <Menu isOpen={isMenuOpen}>
-                                <NavLink to="/plantcatalogy"                               
-                                >
+                                <NavLink to="/plantcatalogy">
                                     <MenuButton
                                         rightIcon={<BiChevronDown />}
                                         bg="green.800"
                                         color="white.50"
                                         _hover={{ fontWeight: 'semibold' }}
-                                        
                                     >
                                         Plant Catalog {isMenuOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
                                     </MenuButton>
                                 </NavLink>
-                                <MenuList color='green.800' 
+                                <MenuList
+                                    color="green.800"
                                     onMouseEnter={() => setIsMenuOpen(true)}
                                     onMouseLeave={() => setIsMenuOpen(false)}
-                                    >
+                                >
                                     <MenuItem onClick={() => setIsMenuOpen(false)}>
-                                        <NavLink to='/products' >All Products</NavLink>
+                                        <NavLink to="/products">All Products</NavLink>
                                     </MenuItem>
-                                    <MenuItem onClick={() => setIsMenuOpen(false)}><NavLink to={`/plantcatalogy?defaultValue=${0}`}>Flowering</NavLink></MenuItem>
-                                    <MenuItem onClick={() => setIsMenuOpen(false)}><NavLink to={`/plantcatalogy?defaultValue=${1}`}>Non-flowering</NavLink></MenuItem>
-                                    <MenuItem onClick={() => setIsMenuOpen(false)}><NavLink to={`/plantcatalogy?defaultValue=${2}`}>Indoor</NavLink></MenuItem>
-                                    <MenuItem onClick={() => setIsMenuOpen(false)}><NavLink to={`/plantcatalogy?defaultValue=${3}`}>Outdoor</NavLink></MenuItem>
-                                    <MenuItem onClick={() => setIsMenuOpen(false)}><NavLink to={`/plantcatalogy?defaultValue=${4}`}>Succulents</NavLink></MenuItem>
-                                    <MenuItem onClick={() => setIsMenuOpen(false)}><NavLink to={`/plantcatalogy?defaultValue=${5}`}>Medicinal</NavLink></MenuItem>
+                                    <MenuItem onClick={() => setIsMenuOpen(false)}>
+                                        <NavLink to={`/plantcatalogy?defaultValue=${0}`}>Flowering</NavLink>
+                                    </MenuItem>
+                                    <MenuItem onClick={() => setIsMenuOpen(false)}>
+                                        <NavLink to={`/plantcatalogy?defaultValue=${1}`}>Non-flowering</NavLink>
+                                    </MenuItem>
+                                    <MenuItem onClick={() => setIsMenuOpen(false)}>
+                                        <NavLink to={`/plantcatalogy?defaultValue=${2}`}>Indoor</NavLink>
+                                    </MenuItem>
+                                    <MenuItem onClick={() => setIsMenuOpen(false)}>
+                                        <NavLink to={`/plantcatalogy?defaultValue=${3}`}>Outdoor</NavLink>
+                                    </MenuItem>
+                                    <MenuItem onClick={() => setIsMenuOpen(false)}>
+                                        <NavLink to={`/plantcatalogy?defaultValue=${4}`}>Succulents</NavLink>
+                                    </MenuItem>
+                                    <MenuItem onClick={() => setIsMenuOpen(false)}>
+                                        <NavLink to={`/plantcatalogy?defaultValue=${5}`}>Medicinal</NavLink>
+                                    </MenuItem>
                                 </MenuList>
                             </Menu>
                         </Box>
@@ -174,18 +189,22 @@ function Header() {
                         </Box> */}
                         <Box _hover={{ bg: 'Green.700' }} cursor="pointer">
                             {/*<NavLink to="/login">*/}
-                            {isLogin ?
+                            {isLogin ? (
                                 <Menu>
                                     <MenuButton>
-                                        <Avatar name={'Hoang Son'}/>
+                                        <Avatar name={'Hoang Son'} />
                                     </MenuButton>
                                     <MenuList>
-                                        <MenuItem color={'black'} onClick={handleLogout}>Log out</MenuItem>
+                                        <MenuItem color={'black'} onClick={handleLogout}>
+                                            Log out
+                                        </MenuItem>
                                     </MenuList>
                                 </Menu>
-                                 : <LoginModal>
-                                <Icon as={CiUser} boxSize="2.5rem" />
-                            </LoginModal>}
+                            ) : (
+                                <a href='https://52.253.98.98/login'>
+                                    <Icon as={CiUser} boxSize="2.5rem" />
+                                </a>
+                            )}
                             {/*</NavLink>*/}
                         </Box>
                         <Box _hover={{ bg: 'Green.700' }} cursor="pointer" pr="1rem">
