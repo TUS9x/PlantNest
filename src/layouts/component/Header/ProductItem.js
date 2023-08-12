@@ -9,7 +9,7 @@ function ProductItem({ data }) {
         <NavLink
             as={Link}
             to={{
-                pathname: `/product/${data.proID}`,
+                pathname: `/products/${data.prodID}`,
                 // state: { data: data },
             }}
         >

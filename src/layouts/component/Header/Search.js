@@ -123,13 +123,13 @@ function Search() {
                     onFocus={() => setShowResuilt(true)}
                 />
                 {!!searchValue && !loading && (
-                    <Button position={'absolute'} right={'52px'} height={'46px'} bg="transparent" onClick={handleClear}>
+                    <Button position={'absolute'} right={'52px'} height={'46px'} backgroundColor={'transparent'}  onClick={handleClear} >
                         {/* clear */}
-                        <FaRegCircleXmark fontSize="2rem" color="gray" />
+                        <FaRegCircleXmark bg={'transparent'} fontSize="1rem" color="gray.500" />
                     </Button>
                 )}
                 {loading && (
-                    <Button position={'absolute'} right={'52px'} height={'46px'} bg="transparent">
+                    <Button position={'absolute'} right={'52px'} height={'46px'} >
                         {/* loading */}
                         <Spinner thickness="4px" speed="0.65s" emptyColor="gray.200" color="gray.500" size="lg" />
                     </Button>

@@ -14,7 +14,7 @@ function GlobalState(props) {
         });
     }, []);
 
-    console.log(products);
+    // console.log(products);
 
     const [cartState, dispatch] = useReducer(shopReducer, { cart: [] });
 
