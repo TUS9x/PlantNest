@@ -1,6 +1,4 @@
-import React, { useState, useReducer, useEffect } from 'react';
-import ShopContext from './ShopContext';
-import { shopReducer, ADD_PRODUCT, REMOVE_PRODUCT, UPDATE } from './reducer';
+import React, { useState,  useEffect } from 'react';
 import axios from 'axios';
 function GlobalState(props) {
     const [products, setPosts] = useState([]);
@@ -18,31 +16,10 @@ function GlobalState(props) {
 
     // console.log(products);
 
-    const [cartState, dispatch] = useReducer(shopReducer, { cart: [] });
-
-    const addProductToCart = (product) => {
-        dispatch({ type: ADD_PRODUCT, product: product });
-    };
-
-    const removeProductFromCart = (productId) => {
-        dispatch({ type: REMOVE_PRODUCT, productId: productId });
-    };
-    const upDate = (productId) => {
-        dispatch({ type: UPDATE, productId: productId });
-    };
-
     return (
-        <ShopContext.Provider
-            value={{
-                products: products,
-                cart: cartState.cart,
-                addProductToCart: addProductToCart,
-                removeProductFromCart: removeProductFromCart,
-                upDate: upDate,
-            }}
-        >
+        <React.Fragment>
             {props.children}
-        </ShopContext.Provider>
+        </React.Fragment>
     );
 }
 

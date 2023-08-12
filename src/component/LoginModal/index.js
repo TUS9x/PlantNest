@@ -80,8 +80,8 @@ const LoginModal = ({ children }) => {
                     </ModalBody>
                     <ModalFooter>
                         <Stack w={`full`}>
-                            <Button colorScheme={'blue'} w={'100%'} onClick={handleSubmit(handleLogin)}>Login</Button>
-                            <Button colorScheme={'orange'} w={'100%'} onClick={handleSubmit(handleLogin)}>Sign up</Button>
+                            <Button bg='green.500' w={'100%'} onClick={handleSubmit(handleLogin)}>Login</Button>
+                            <Button bg='orange.300' w={'100%'} onClick={handleSubmit(handleLogin)}>Sign up</Button>
                         </Stack>
                     </ModalFooter>
                 </ModalContent>

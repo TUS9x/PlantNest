@@ -14,7 +14,7 @@ function Banner() {
                         <br />
                         <Button colorScheme="teal" variant="outline">
                             <Box fontWeight="bold" fontSize="lg">
-                                <NavLink> Shop now</NavLink>
+                                <NavLink to='/products'> Shop now</NavLink>
                             </Box>
                         </Button>
                     </CardBody>

@@ -21,7 +21,7 @@ function AboutUs() {
                 justifyContent={'space-between'}
                 gap={'4'}
             >
-                <Accordion defaultIndex={[0]} allowMultiple>
+                <Accordion defaultIndex={[2]} allowMultiple>
                     <AccordionItem>
                         <AccordionButton>
                             <Box
@@ -79,7 +79,7 @@ function AboutUs() {
                         <AccordionPanel pb={4}>
                             <Box>
                                 We’re your online houseplant destination. We offer a wide range of houseplants and
-                                accessories shipped directly from our (green)house to yours!
+                                accessories shipped directly from our greenhouse to yours!
                             </Box>
                         </AccordionPanel>
                     </AccordionItem>

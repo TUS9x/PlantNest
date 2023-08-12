@@ -2,15 +2,9 @@ import { Button, Flex, Heading, Link, Stack, HStack, Text, Select, Box, Image } 
 import React, { useContext, useEffect } from 'react';
 import { FiGift } from 'react-icons/fi';
 import { MdOutlineCancel } from 'react-icons/md';
-import ShopContext from '~/component/GlobalStates/ShopContext';
 import { NavLink } from 'react-router-dom';
 function Cart() {
     var total = 0;
-    const context = useContext(ShopContext);
-    var total = 0;
-    useEffect(() => {
-        console.log(context);
-    }, []);
     return (
         <React.Fragment>
             <Box maxW={{ lg: '7xl' }} mx="auto" px={{ base: '4', md: '8' }} py={{ base: '6', md: '8' }}>
@@ -19,7 +13,7 @@ function Cart() {
                         <Heading fontSize="2xl" fontWeight="extrabold">
                             Shopping Cart (X items)
                         </Heading>
-                        <Stack spacing="6">
+                        {/* <Stack spacing="6">
                             {context.cart.length <= 0 && <p>No Item in the Cart!</p>}
                             {context.cart.map((cartItem) => (
                                 <Box key="item.id">
@@ -78,7 +72,7 @@ function Cart() {
                                     </Flex>
                                 </Box>
                             ))}
-                        </Stack>
+                        </Stack> */}
                     </Stack>
                     <Stack spacing="8" borderWidth="1px" rounded="lg" padding="8" width="40%" marginTop="50px">
                         <Heading size="md">Order Summary</Heading>

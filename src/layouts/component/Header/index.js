@@ -15,18 +15,11 @@ import { HamburgerIcon, CloseIcon, ChevronDownIcon, ChevronUpIcon } from '@chakr
 import { CiUser, CiShoppingCart } from 'react-icons/ci';
 import { BiChevronDown } from 'react-icons/bi';
 import Search from './Search';
-import MainNavigation from '~/component/GlobalStates/MainNavigation';
-import ShopContext from '~/component/GlobalStates/ShopContext';
-import Context from '~/component/GlobalStates/Context';
-import { useContext, useState } from 'react';
 import LoginModal from '~/component/LoginModal';
 import { useAppContext } from '~/App';
-
+import { useState } from 'react';
 function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const context = useContext(ShopContext);
-    const storeContext = useContext(Context)
-    const [state,dispatch] =storeContext
     const { isOpen, onOpen, onClose } = useDisclosure();
     const { isLogin, setIsLogin } = useAppContext()
 
@@ -191,12 +184,8 @@ function Header() {
                             <NavLink to="/cart">
                                 <Box display="flex">
                                     <Icon as={CiShoppingCart} boxSize="2.5rem" />
-                                    <MainNavigation
-                                        color="red"
-                                        cartItemNumber={context.cart.reduce((count, curItem) => {
-                                            return count + curItem.quantity * 1;
-                                        }, 0)}
-                                    />
+                                    <Box>0</Box>
+                                     
                                 </Box>
                             </NavLink>
                         </Box>

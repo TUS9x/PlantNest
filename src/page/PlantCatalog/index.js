@@ -9,15 +9,14 @@ function PlantCatalog() {
     return (
         <>
             <Accordion defaultIndex={defaultIndex} allowMultiple>
-                <AccordionItem>
-                    <h2>
+                <AccordionItem >
                         <AccordionButton>
-                            <Box as="span" flex="1" textAlign="center" fontWeight="bold" color="green.800">
+                            <Box as="span" flex="1" textAlign="center" color="green.800">
                                 FLOWER
                             </Box>
                             <AccordionIcon />
                         </AccordionButton>
-                    </h2>
+                   
                     <AccordionPanel pb={4}>
                         <Box
                             display={{ base: 'block', sm: 'grid' }}

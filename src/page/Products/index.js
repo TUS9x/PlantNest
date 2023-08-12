@@ -3,6 +3,7 @@ import axios from 'axios';
 import Item from '../components/Item';
 import { Box, Button, Flex, HStack, Select } from '@chakra-ui/react';
 import { last, orderBy } from 'lodash';
+
 //import { useAppContext } from '~/App';
 
 const styleSearch = { height: '20px', width: '100%', display: 'flex', alignItems: 'center', padding: '' };
@@ -88,108 +89,120 @@ function Products() {
         }
     }
     return (
-        <Flex direction={'column'} alignItems={'center'} gap={6}>
+                <React.Fragment>
+                    <Flex direction={'column'} alignItems={'center'} gap={6}>
+                        <Flex style={{ width: '100%',  
+                            alignItems: 'center' }}     
+                            paddingX={{base:'0', md:'40px'}} py='15px'
+                            direction={{base:'column', md:'row'}}
+                        >
+                            <HStack alignItems={'flex-start'} ml={2} mr='1rem' width={{base:'340px', md:'210px'}}>
+                                <Box width='70px' pt='7px'>Sort by:</Box>
+                                <Select fontSize='14px'  onChange={(e)=> (handleSort(e))}>
+                                    <option value='AscendingName'>Name, A-Z</option>
+                                    <option value='DescendingName'>Name, Z-A</option>
+                                    <option value='AscendingPrice' >Price, low to high</option>
+                                    <option value='DescendingPrice' >Price, high to low</option>
+                                </Select>
+                            </HStack>
+                            <Box width={{base:'340px', md:'800px'}} display='flex' flexDirection={'row'} mt={{base:'15px',md:'0'}}>
+                                <Box width='70px' mr='0.5rem'>Frice from: </Box>    
+                                <Box>0</Box>
+                                <Box
+                                    id="searchLine"
+                                    style={{
+                                        margin: '10px 5px',
+                                        borderRadius: '2px',
+                                        cursor: 'pointer',
+                                        position: 'relative',
+                                        height: '10px',
+                                        width:'70%',
+                                        //width: widthLine + 'px',
+                                        background: '#c2b4b4',
+                                    }}
+                                >
+                                    
+                                    <p
+                                        id="point"
+                                        style={{
+                                            left: selectPointPosition - 5,
+                                            position: 'absolute',
+                                            height: '10px',
+                                            width: '10px',
+                                            background: '#126f32',
+                                            borderRadius: '50%',
+                                        }}
+                                    ></p>
+                                    <p
+                                        style={{
+                                            display: moved ? 'none' : 'block',
+                                            position: 'relative',
+                                            top: '-30px',
+                                            left: selectPointPosition - 8,
+                                        }}
+                                        id="priceOnMove"
+                                    >
+                                        {priceOnPoint}
+                                    </p>
+                                    <p
+                                        style={{
+                                            display: moved ? 'block' : 'none',
+                                            position: 'absolute',
+                                            top: '-30px',
+                                            left: selectMovePosition - 8,
+                                        }}
+                                        id="priceOnMove"
+                                    >
+                                        {priceOnMove}
+                                    </p>
+                                </Box>
+                                <Box fontWeight="bold">${maxPrice}</Box>                               
+                            </Box>
 
-
-            <Box style={{ height: '20px', width: '100%', display: 'flex', alignItems: 'center', padding: '50px' }}>
-                <Box>0</Box>
-                <Box
-                    id="searchLine"
-                    style={{
-                        margin: '10px',
-                        borderRadius: '2px',
-                        cursor: 'pointer',
-                        position: 'relative',
-                        height: '10px',
-                        width: widthLine + 'px',
-                        background: '#c2b4b4',
-                    }}
-                >
-                    <p
-                        id="point"
-                        style={{
-                            left: selectPointPosition - 5,
-                            position: 'absolute',
-                            height: '10px',
-                            width: '10px',
-                            background: '#126f32',
-                            borderRadius: '50%',
-                        }}
-                    ></p>
-                    <p
-                        style={{
-                            display: moved ? 'none' : 'block',
-                            position: 'relative',
-                            top: '-30px',
-                            left: selectPointPosition - 8,
-                        }}
-                        id="priceOnMove"
-                    >
-                        {priceOnPoint}
-                    </p>
-                    <p
-                        style={{
-                            display: moved ? 'block' : 'none',
-                            position: 'absolute',
-                            top: '-30px',
-                            left: selectMovePosition - 8,
-                        }}
-                        id="priceOnMove"
-                    >
-                        {priceOnMove}
-                    </p>
-                </Box>
-                <Box>
-                    <Box fontWeight="bold">$ {maxPrice}</Box>
-                </Box>
-                <HStack alignItems={'flex-start'} ml={6}>
-                    <Select placeholder='Sort by' onChange={(e)=> (handleSort(e))}>
-                        <option value='AscendingName'>Ascending by name</option>
-                        <option value='DescendingName'>Descending by name</option>
-                        <option value='AscendingPrice' >Ascending by Price</option>
-                        <option value='DescendingPrice' >Descending by Price</option>
-                    </Select>
-                </HStack>
-            </Box>
-
-            <Box display={{ base: 'block', sm: 'grid' }} gridTemplateColumns="repeat(4,1fr)" gap={4} width="100%">
-                {products
-                    .filter(item=>item.prodPrice<priceOnPoint)
-                    .map((product, index) => {
-                        while (index < limit) {
-                            return <Item name={product.prodName} key={product.prodID} price={product.prodPrice}  img={product.imageUrl}/>;
-                    }
-                })}
-            </Box>
-            <Box space>
-                {shouldShowButton && (
-                    <Button
-                        size="md"
-                        color="white"
-                        bg="green.800"
-                        _hover={{ bg: 'green.800' }}
-                        width={40}
-                        onClick={() => setLimit(limit * 2)}
-                        mb="1rem"
-                        mr={'1rem'}
-                    >
-                        Show more
-                    </Button>
-                )}
-                <Button
-                    ml={'1rem'}
-                    size='md'
-                    width={40}
-                    onClick={()=>{
-                        setLimit(8)
-                    }}
-                    mb="1rem"
-                >
-                    Show less
-                </Button>
-            </Box>
-
-        </Flex>
+                        </Flex>
+                        <Box display={{ base: 'block', sm: 'grid' }} gridTemplateColumns="repeat(4,1fr)" gap={4} width="100%">
+                            {products
+                                .filter(item=>item.prodPrice<priceOnPoint)
+                                .map((product, index) => {
+                                    while (index < limit) {
+                                        return <Item 
+                                                    name={product.prodName} 
+                                                    key={product.prodID} 
+                                                    price={product.prodPrice}  
+                                                    img={product.imageUrl}
+                                                />;
+                                }
+                            })}
+                        </Box>
+                        <Box space>
+                            {shouldShowButton && (
+                                <Button
+                                    size="md"
+                                    color="white"
+                                    bg="green.800"
+                                    _hover={{ bg: 'green.800' }}
+                                    width={40}
+                                    onClick={() => setLimit(limit * 2)}
+                                    mb="1rem"
+                                    mr={'1rem'}
+                                >
+                                    Show more
+                                </Button>
+                            )}
+                            <Button
+                                ml={'1rem'}
+                                size='md'
+                                width={40}
+                                onClick={()=>{
+                                    setLimit(8)
+                                }}
+                                mb="1rem"
+                            >
+                                Show less
+                            </Button>
+                        </Box>
+                    </Flex>   
+                </React.Fragment>
     );
 }
 
