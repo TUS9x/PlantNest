@@ -1,4 +1,4 @@
-import { Box, Grid, GridItem, Image } from '@chakra-ui/react';
+import { Box, Grid, GridItem, HStack, Stack, Flex } from '@chakra-ui/react';
 import { NavLink } from 'react-router-dom';
 import { ImTwitter, ImFacebook, ImInstagram } from 'react-icons/im';
 
@@ -7,7 +7,7 @@ function Footer() {
         <Box width={'100%'}  bg="green.800" >
             <Box
                 maxWidth={'1400px'}
-                height={{ base: '', md: '159px' }}
+                height={{ base: '', md: '170px' }}
                 // as="nav"
                 display={'flex'}
                 align="center"
@@ -27,19 +27,35 @@ function Footer() {
                 >
                     <GridItem
                         color="gray.50"
-                        fontSize={{ base: 'xl', md: '2xl' }}
-                        fontWeight="bold"
+                        fontSize={{ base: 'xl', md: '2xl' }}                       
                         display={'flex'}
                         justifyContent={{ base: 'center', md: 'start' }}
                     >
                         <Box
                             fontSize={{ base: '2xl', lg: '3xl' }}
-                            fontWeight="bold"
                             padding={{ base: '0.5rem' }}
                             order={[2, 1, 1]}
-                            width='200px'
+                            width='220px'
                         >
-                            <NavLink to="/" bg='gray.400'> <Image  objectFit={'cover'} src="../nest-white5.png"/></NavLink>
+                            <NavLink to="/" 
+                                fontWeight="bold" 
+                                fontSize={{ base: '2xl', lg: '3xl' }}
+                            > 
+                                PLANT NEST 
+                            </NavLink>
+                            <Flex fontSize="14px" flexDirection='row' pl='1rem' >
+                                <HStack display={'flex'} flexDirection='column' alignItems='flex-start' pr='1rem' pb='1rem' width='110px'>
+                                    <Stack _hover={{ fontWeight: 'semibold' }}> <NavLink to='/products' >All Products</NavLink></Stack>
+                                    <Stack _hover={{ fontWeight: 'semibold' }}><NavLink to={`/plantcatalogy?defaultValue=${0}`}>Flowering</NavLink></Stack>
+                                    <Stack _hover={{ fontWeight: 'semibold' }}><NavLink to={`/plantcatalogy?defaultValue=${1}`}>Non-flowering</NavLink></Stack>
+                                    <Stack _hover={{ fontWeight: 'semibold' }}><NavLink to={`/plantcatalogy?defaultValue=${2}`}>Indoor</NavLink></Stack>
+                                </HStack>
+                                <HStack display={'flex'} flexDirection='column' alignItems='flex-start' >
+                                    <Stack _hover={{ fontWeight: 'semibold' }}><NavLink to={`/plantcatalogy?defaultValue=${3}`}>Outdoor</NavLink></Stack>
+                                    <Stack _hover={{ fontWeight: 'semibold' }}><NavLink to={`/plantcatalogy?defaultValue=${4}`}>Succulents</NavLink></Stack>
+                                    <Stack _hover={{ fontWeight: 'semibold' }}><NavLink to={`/plantcatalogy?defaultValue=${5}`}>Medicinal</NavLink></Stack>
+                                </HStack>
+                            </Flex>
                         </Box>
                     </GridItem>
 
@@ -54,6 +70,7 @@ function Footer() {
                         gap={6}
                         colSpan={{ md: 1, lg: 1 }}
                         whiteSpace={'nowrap'}
+                        fontWeight="bold"
                     >
                         <Box  _hover={{ fontWeight: 'bold' }} cursor={'pointer'}>
                             <NavLink to="/">Home</NavLink>
