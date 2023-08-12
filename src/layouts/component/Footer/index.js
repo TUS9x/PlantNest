@@ -41,22 +41,23 @@ function Footer() {
                         flexDirection={{ base: 'column', md: 'row' }}
                         justify={'center'}
                         alignItems={{ base: 'center', md: 'center', lg: 'flex-start' }}
-                        fontSize='16px'
+                        fontSize="16px"
                         color="gray.50"
                         gap={6}
                         colSpan={{ md: 3, lg: 1 }}
+                        whiteSpace={'nowrap'}
                     >
-                        <Box _hover={{ fontWeight: 'bold' }} cursor={'pointer'}>
+                        <Box  _hover={{ fontWeight: 'bold' }} cursor={'pointer'}>
                             <NavLink to="/">Home</NavLink>
                         </Box>
                         <Box _hover={{ fontWeight: 'bold' }} cursor={'pointer'}>
-                            <NavLink to="/">About US</NavLink>
+                            <NavLink to="/" >About US</NavLink>
                         </Box>
                         <Box _hover={{ fontWeight: 'bold' }} cursor={'pointer'}>
                             <NavLink to="/">Feed Back</NavLink>
                         </Box>
                         <Box _hover={{ fontWeight: 'bold' }} cursor={'pointer'}>
-                            <NavLink to="/">Contact US</NavLink>
+                            <NavLink to="/" >Contact US</NavLink>
                         </Box>
                     </GridItem>
 
