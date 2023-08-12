@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Grid, GridItem, Text } from '@chakra-ui/layout';
 import { Img } from '@chakra-ui/image';
 import { Button, Input, Flex, Box, Image, HStack, Stack, AspectRatio } from '@chakra-ui/react';
+import { apiUrl } from '~/configs';
 
 import RatingStars from './RatingStar';
 import { AddIcon } from '@chakra-ui/icons';
@@ -46,7 +47,7 @@ function ProductionInfor(props) {
     useEffect(() => {
         setLoading(true);
         axios
-            .get(`http://52.253.98.98:8080/api/products/${id}`)
+            .get(`${apiUrl}/api/products/${id}`)
             .then((response) => {
                 setCallProducts(response.data);
                 console.log('data tra ve',response.data)
