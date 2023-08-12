@@ -8,6 +8,7 @@ import ContactUs from '~/page/ContactUs';
 import PlantCatalog from '~/page/PlantCatalog';
 import AboutUs from '~/page/AboutUs';
 import Products from '~/page/Products';
+import UserPage from '~/page/UserPage';
 
 // import { HeaderOnly } from '~/layouts';
 
@@ -23,6 +24,7 @@ const publicRoutes = [
     { path: '/feedback', component: Feedback },
     { path: '/plantcatalogy', component: PlantCatalog },
     { path: '/aboutus', component: AboutUs },
+    { path: '/userpage', component: UserPage}
 
     // { path: config.routes.upload, component: Upload, layout: HeaderOnly },
     // { path: config.routes.search, component: Search, layout: null },

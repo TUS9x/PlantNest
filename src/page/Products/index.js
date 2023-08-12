@@ -107,7 +107,7 @@ function Products() {
                                 </Select>
                             </HStack>
                             <Box width={{base:'340px', md:'800px'}} display='flex' flexDirection={'row'} mt={{base:'15px',md:'0'}}>
-                                <Box width='70px' mr='0.5rem'>Frice from: </Box>    
+                                <Box width='70px' mr='0.5rem'>Price from: </Box>    
                                 <Box>0</Box>
                                 <Box
                                     id="searchLine"

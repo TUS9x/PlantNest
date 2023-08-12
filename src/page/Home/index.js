@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import AboutUs from '../AboutUs';
 import PlantCatalog from '../PlantCatalog';
 import Products from '../Products';
@@ -6,7 +7,7 @@ function Home() {
     return (
         <>
             <Banner />
-            <AboutUs />
+            <NavLink to='/aboutus'><AboutUs /></NavLink>
             <Products />
             <PlantCatalog/>
         </>

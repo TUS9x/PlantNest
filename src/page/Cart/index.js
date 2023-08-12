@@ -105,3 +105,48 @@ function Cart() {
 }
 
 export default Cart;
+ /*
+
+ cho tôi một đoạn code mẫu về trang ShoppingCart sau khi người dùng đã login, dữ liệu cart được lấy từ api, đoạn code bằng react và chakra ui
+
+import React, { useEffect, useState } from 'react';
+import { Box, Text, Button, Flex, Divider, VStack } from '@chakra-ui/react';
+
+function ShoppingCart() {
+  const [cartItems, setCartItems] = useState([]);
+
+  useEffect(() => {
+    // Gọi API để lấy dữ liệu giỏ hàng
+    // Ví dụ: axios.get('/api/shopping-cart').then(response => setCartItems(response.data));
+    // Chú ý: Thay thế đoạn mã trên bằng cách gọi API thực tế của bạn để lấy dữ liệu giỏ hàng
+  }, []);
+
+  return (
+    <Box p={4}>
+      <Text fontSize="xl" fontWeight="bold" mb={4}>
+        Your Shopping Cart
+      </Text>
+      <VStack spacing={4} align="stretch">
+        {cartItems.map(item => (
+          <Box key={item.id} p={4} borderWidth={1} borderColor="gray.200" borderRadius="md">
+            <Text fontSize="lg" fontWeight="bold">
+              {item.name}
+            </Text>
+            <Text>${item.price}</Text>
+            // Thêm các thông tin khác về sản phẩm
+            </Box>
+            ))}
+          </VStack>
+          <Divider my={4} />
+          <Flex justify="flex-end">
+            <Button colorScheme="green" size="lg">
+              Checkout
+            </Button>
+          </Flex>
+        </Box>
+      );
+    }
+    
+    export default ShoppingCart;
+    
+ */

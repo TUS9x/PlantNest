@@ -165,7 +165,7 @@ function Header() {
                             <Icon as={CiSearch} boxSize={{ base: '3rem', md: '3rem' }} />
                         </Box> */}
                         <Box _hover={{ bg: 'Green.700' }} cursor="pointer">
-                            {/*<NavLink to="/login">*/}
+                            <NavLink to="/userpage">
                             {isLogin ?
                                 <Menu>
                                     <MenuButton>
@@ -178,7 +178,7 @@ function Header() {
                                  : <LoginModal>
                                 <Icon as={CiUser} boxSize="2.5rem" />
                             </LoginModal>}
-                            {/*</NavLink>*/}
+                            </NavLink>
                         </Box>
                         <Box _hover={{ bg: 'Green.700' }} cursor="pointer" pr="1rem">
                             <NavLink to="/cart">
