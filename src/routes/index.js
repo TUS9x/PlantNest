@@ -14,7 +14,7 @@ import Products from '~/page/Products';
 //Public routes
 const publicRoutes = [
     { path: '/', component: Home },
-    { path: '/product/:id', component: ProductionInfor },
+    { path: '/products/:id', component: ProductionInfor },
     { path: '/cart', component: Cart },
     { path: '/contactus', component: ContactUs },
     { path: '/signup', component: SignUp },

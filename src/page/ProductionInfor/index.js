@@ -46,9 +46,10 @@ function ProductionInfor(props) {
     useEffect(() => {
         setLoading(true);
         axios
-            .get(`https://jsonplaceholder.typicode.com/users/${id}`)
+            .get(`http://52.253.98.98:8080/api/products/${id}`)
             .then((response) => {
                 setCallProducts(response.data);
+                console.log('data tra ve',response.data)
             })
             .catch((error) => {
                 console.error('xay ra loi', error);
@@ -101,14 +102,19 @@ function ProductionInfor(props) {
         <Flex flexWrap={'wrap'} w={{ xl: '66.6%', lg: '50%', base: 'full' }} flexDirection={{ xl: 'row', lg: 'column'}} aria-label={'description'} flex={1}>
             <Wrapper spacing={4} w={{ xl: '50%', lg: 'full', base: 'full' }}>
                 <Text fontSize={'4xl'} fontWeight={'bold'}>
-                    Product name: {callProducts.name}
+                    Product name: {callProducts.prodName}
                 </Text>
                 <Text fontSize={'3xl'} fontWeight={'bold'}>
                     {' '}
-                    Price: $ - - -{' '}
+                    Price: $ {callProducts.prodPrice}
                 </Text>
                 <RatingStars />
-                <Box dangerouslySetInnerHTML={{ __html: description }}/>
+                <Text>
+                    Discription: {callProducts.prodDesc}
+                </Text>
+                {/*<Box*/}
+                {/*    dangerouslySetInnerHTML={{ __html: description }}*/}
+                {/*/>*/}
             </Wrapper>
             <Wrapper w={{ xl: '50%', lg: 'full', base: 'full' }} spacing={4}>
                 <HStack>

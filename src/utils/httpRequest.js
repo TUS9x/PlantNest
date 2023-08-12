@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const request = axios.create({
-    baseURL: 'http://localhost:8080/api/'
+    baseURL: 'http://52.253.98.98:8080/api/'
     //baseURL: 'https://jsonplaceholder.typicode.com/', //API endpoint (Diem cuoi truy cạp)
 });
 
