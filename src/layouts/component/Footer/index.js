@@ -6,7 +6,7 @@ function Footer() {
     return (
         <footer>
             <Box
-                maxWidth={'1440px'}
+                maxWidth={'1400px'}
                 height={{ base: '', md: '159px' }}
                 mx={'auto'}
                 // as="nav"

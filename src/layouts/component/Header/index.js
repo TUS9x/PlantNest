@@ -36,7 +36,7 @@ function Header() {
     return (
         <Box width="100%" bg="green.800">
             <Flex
-                maxWidth={'1440px'}
+                maxWidth={'1400px'}
                 mx={'auto'}
                 as="nav"
                 align="center"
