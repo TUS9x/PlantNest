@@ -1,6 +1,6 @@
 import React, { useState, useReducer, useEffect } from 'react';
 import ShopContext from './ShopContext';
-import { shopReducer, ADD_PRODUCT, REMOVE_PRODUCT, UPDATE } from './reducers';
+import { shopReducer, ADD_PRODUCT, REMOVE_PRODUCT, UPDATE } from './reducer';
 import axios from 'axios';
 function GlobalState(props) {
     const [products, setPosts] = useState([]);

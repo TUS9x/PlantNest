@@ -25,10 +25,9 @@ import { useAppContext } from '~/App';
 function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const context = useContext(ShopContext);
-    //const storeContext = useContext(Context)
-    //const [state,dispatch] =storeContext
+    const storeContext = useContext(Context)
+    const [state,dispatch] =storeContext
     const { isOpen, onOpen, onClose } = useDisclosure();
-    const { isOpenCatalog, onOpenCatalog, onCloseCatalog } = useDisclosure()
     const { isLogin, setIsLogin } = useAppContext()
 
     const handleLogout = () => {

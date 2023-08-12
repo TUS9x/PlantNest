@@ -2,7 +2,7 @@ import { Flex, Image, CardFooter, Box, Card, CardBody, useToast } from '@chakra-
 import { MdOutlineAddShoppingCart, MdOutlineFavoriteBorder } from 'react-icons/md';
 import { useAppContext } from '~/App';
 import LoginModal from '~/component/LoginModal';
-
+import { useContext } from 'react';
 function Item(props) {
     const toast = useToast();
     const { isLogin } = useAppContext()
@@ -40,15 +40,17 @@ function Item(props) {
                             <MdOutlineAddShoppingCart
                             fontSize="2rem"
                             color="green"
-                            onClick={() =>
+                            onClick={() => (
                                 toast({
                                     title: 'Shopping ADD',
                                     description: '',
                                     status: 'success',
                                     duration: 9000,
                                     isClosable: true,
-                                })
-                            }
+                                }),
+                                props.addToCart
+                            )}
+                            
                         /> : <LoginModal>
                                 <MdOutlineAddShoppingCart
                                     fontSize="2rem"
@@ -56,7 +58,6 @@ function Item(props) {
                                 />
                             </LoginModal>
                              }
-
                     </Flex>
                 </CardFooter>
             </Card>

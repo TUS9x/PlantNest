@@ -1,66 +1,50 @@
-export const ADD_PRODUCT = 'ADD_PRODUCT';
-export const REMOVE_PRODUCT = 'REMOVE_PRODUCT';
-export const UPDATE = 'UPDATE';
+import { SORT_LOW_TO_HIGHT, SORT_HIGHT_TO_LOW, SORT_PRODUCTS_NAME, SEARCH_PRODUCTS } from './constants';
 
-//prev Reducer
-const addProductToCart = (product, state) => {
-    console.log('adding product', product);
-    const updatedCart = [...state.cart];
-    const updatedItemIndex = updatedCart.findIndex((item) => item.id === product.id);
+function reducer(state, action) {
+  switch (action.type) {
+    case SORT_LOW_TO_HIGHT:
+      var updateProducts = [...state.products];
+      updateProducts = updateProducts.sort((a, b) => b.price * 1 - a.price * 1);
+      return {
+        ...state,
+        productsRender: updateProducts,
+      };
+    case SORT_HIGHT_TO_LOW:
+      var updateProducts2 = [...state.products];
+      updateProducts2 = updateProducts2.sort((a, b) => a.price * 1 - b.price * 1);
+      return {
+        ...state,
+        productsRender: updateProducts2,
+      };
+    case SORT_PRODUCTS_NAME:
+      var updateProducts3 = [...state.products];
+      updateProducts3 = updateProducts3.sort((a, b) => {
+        const nameA = a.name.toUpperCase();
+        const nameB = b.name.toUpperCase();
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
+        return 0;
+      });
+      return {
+        ...state,
+        productsRender: updateProducts3,
+      };
+    case SEARCH_PRODUCTS:
+      var updateProducts4 = [...state.products];
+      updateProducts4 = updateProducts4.filter((items) =>
+        JSON.stringify(items).toLowerCase().includes(action.payload.toLowerCase()),
+      );
+      return {
+        ...state,
+        productsRender: updateProducts4,
+      };
+    default:
+      throw new Error('Invailt error');
+  }
+}
 
-    if (updatedItemIndex < 0) {
-        updatedCart.push({ ...product, quantity: 1 });
-    } else {
-        const updatedItem = {
-            ...updatedCart[updatedItemIndex],
-        };
-        updatedItem.quantity++;
-        updatedCart[updatedItemIndex] = updatedItem;
-    }
-
-    return { ...state, cart: updatedCart };
-};
-
-const upDate = (productId, state) => {
-    console.log('update ' + productId);
-    const updatedCart = [...state.cart];
-    const updatedItemIndex = updatedCart.findIndex((item) => item.id === productId);
-    const updatedItem = {
-        ...updatedCart[updatedItemIndex],
-    };
-    if (updatedItem.quantity <= 0) {
-        updatedCart.splice(updatedItemIndex, 1);
-    } else {
-        updatedCart[updatedItemIndex] = updatedItem;
-    }
-    return { ...state, cart: updatedCart };
-};
-
-const removeProductFromCart = (productId, state) => {
-    console.log('remove product: ' + productId);
-    const updatedCart = [...state.cart];
-    const updatedItemIndex = updatedCart.findIndex((item) => item.id === productId);
-    const updatedItem = {
-        ...updatedCart[updatedItemIndex],
-    };
-    updatedCart.splice(updatedItemIndex, 1);
-
-    return { ...state, cart: updatedCart };
-};
-
-//Reducer
-export const shopReducer = (state, action) => {
-    switch (action.type) {
-        case ADD_PRODUCT:
-            return addProductToCart(action.product, state);
-
-        case REMOVE_PRODUCT:
-            return removeProductFromCart(action.productId, state);
-
-        case UPDATE:
-            return upDate(action.productId, state);
-
-        default:
-            return state;
-    }
-};
+export default reducer;
