@@ -1,7 +1,7 @@
 import React,{ useContext, useState, useEffect,useLayoutEffect } from 'react';
 import axios from 'axios';
 import Item from '../components/Item';
-import { Box, Button, Flex, Select,HStack } from '@chakra-ui/react';
+import { Box, Button, Flex } from '@chakra-ui/react';
 import { last, orderBy } from 'lodash';
 //import { useAppContext } from '~/App';
 
@@ -157,7 +157,7 @@ function Products() {
                     .filter(item=>item.prodPrice<priceOnPoint)
                     .map((product, index) => {
                         while (index < limit) {
-                            return <Item name={product.prodName} key={product.prodID} price={product.prodPrice} />;
+                            return <Item name={product.prodName} key={product.prodID} price={product.prodPrice}  img={product.imageUrl}/>;
                     }
                 })}
             </Box>

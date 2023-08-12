@@ -14,7 +14,6 @@ function Footer() {
                 justify={{ base: 'center', md: 'space-between' }}
                 wrap="wrap"
                 px={{ xl: 0, base: 4 }}
-                maxWidth={'1440px'}
                 mx={'auto'}
             >
                 <Grid

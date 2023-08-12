@@ -11,22 +11,24 @@ import {
     MenuItem,
     Image, Avatar,
 } from '@chakra-ui/react';
-import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
+import { HamburgerIcon, CloseIcon, ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons';
 import { CiUser, CiShoppingCart } from 'react-icons/ci';
 import { BiChevronDown } from 'react-icons/bi';
 import Search from './Search';
 import MainNavigation from '~/component/GlobalStates/MainNavigation';
 import ShopContext from '~/component/GlobalStates/ShopContext';
 import Context from '~/component/GlobalStates/Context';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import LoginModal from '~/component/LoginModal';
 import { useAppContext } from '~/App';
 
 function Header() {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
     const context = useContext(ShopContext);
     //const storeContext = useContext(Context)
     //const [state,dispatch] =storeContext
     const { isOpen, onOpen, onClose } = useDisclosure();
+    const { isOpenCatalog, onOpenCatalog, onCloseCatalog } = useDisclosure()
     const { isLogin, setIsLogin } = useAppContext()
 
     const handleLogout = () => {
@@ -60,7 +62,7 @@ function Header() {
                 <Box
                     fontSize={{ base: '2xl', lg: '3xl' }}
                     fontWeight="bold"
-                    padding={{ base: '0.5rem' }}
+                    paddingY= '0.5rem' 
                     order={[2, 1, 1]}
                     width='200px'
                 >
@@ -88,7 +90,7 @@ function Header() {
                             _hover={{ fontWeight: 'semibold' }}
                             cursor="pointer"
                             paddingY={{ base: '1rem' }}
-                            paddingX={{ base: '0.5rem' }}
+                            paddingX={{ base: '0.4rem' }}
                             minWidth="110px"
                         >
                             <NavLink to="/">Home</NavLink>
@@ -97,30 +99,37 @@ function Header() {
                             _hover={{ fontWeight: 'semibold' }}
                             cursor="pointer"
                             paddingY={{ base: '1rem' }}
-                            paddingX={{ base: '0.5rem' }}
-                            minWidth="160px"
+                            paddingX={{ base: '0.4rem' }}
+                            minWidth="150px"
+                            onMouseEnter={() => setIsMenuOpen(true)}
+                            onMouseLeave={() => setIsMenuOpen(false)}
                         >
-                            <Menu isLazy>
-                                <NavLink to="/plantcatalogy">
+                            <Menu isOpen={isMenuOpen}>
+                                <NavLink to="/plantcatalogy"                               
+                                >
                                     <MenuButton
                                         rightIcon={<BiChevronDown />}
                                         bg="green.800"
                                         color="white.50"
                                         _hover={{ fontWeight: 'semibold' }}
+                                        
                                     >
-                                        Plant Catalog &#8675;
+                                        Plant Catalog {isMenuOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
                                     </MenuButton>
                                 </NavLink>
-                                <MenuList color='green.800'>
-                                    <MenuItem>
-                                        <NavLink to='/products'>All Products</NavLink>
+                                <MenuList color='green.800' 
+                                    onMouseEnter={() => setIsMenuOpen(true)}
+                                    onMouseLeave={() => setIsMenuOpen(false)}
+                                    >
+                                    <MenuItem onClick={() => setIsMenuOpen(false)}>
+                                        <NavLink to='/products' >All Products</NavLink>
                                     </MenuItem>
-                                    <MenuItem>Flowering</MenuItem>
-                                    <MenuItem>Non-flowering</MenuItem>
-                                    <MenuItem>Indoor</MenuItem>
-                                    <MenuItem>Outdoor</MenuItem>
-                                    <MenuItem>Succulents</MenuItem>
-                                    <MenuItem>Medicinal</MenuItem>
+                                    <MenuItem onClick={() => setIsMenuOpen(false)}><NavLink to={`/plantcatalogy?defaultValue=${0}`}>Flowering</NavLink></MenuItem>
+                                    <MenuItem onClick={() => setIsMenuOpen(false)}><NavLink to={`/plantcatalogy?defaultValue=${1}`}>Non-flowering</NavLink></MenuItem>
+                                    <MenuItem onClick={() => setIsMenuOpen(false)}><NavLink to={`/plantcatalogy?defaultValue=${2}`}>Indoor</NavLink></MenuItem>
+                                    <MenuItem onClick={() => setIsMenuOpen(false)}><NavLink to={`/plantcatalogy?defaultValue=${3}`}>Outdoor</NavLink></MenuItem>
+                                    <MenuItem onClick={() => setIsMenuOpen(false)}><NavLink to={`/plantcatalogy?defaultValue=${4}`}>Succulents</NavLink></MenuItem>
+                                    <MenuItem onClick={() => setIsMenuOpen(false)}><NavLink to={`/plantcatalogy?defaultValue=${5}`}>Medicinal</NavLink></MenuItem>
                                 </MenuList>
                             </Menu>
                         </Box>
@@ -128,7 +137,7 @@ function Header() {
                             _hover={{ fontWeight: 'semibold' }}
                             cursor="pointer"
                             paddingY={{ base: '1rem' }}
-                            paddingX={{ base: '0.5rem' }}
+                            paddingX={{ base: '0.4rem' }}
                             minWidth="120px"
                         >
                             <NavLink to="/aboutus">About Us</NavLink>
@@ -137,8 +146,8 @@ function Header() {
                             _hover={{ fontWeight: 'bold' }}
                             cursor="pointer"
                             paddingY={{ base: '1rem' }}
-                            paddingX={{ base: '0.5rem' }}
-                            minWidth="120px"
+                            paddingX={{ base: '0.4rem' }}
+                            minWidth="110px"
                         >
                             <NavLink to="/feedback">Feed Back</NavLink>
                         </Box>
@@ -146,15 +155,15 @@ function Header() {
                             _hover={{ fontWeight: 'semibold' }}
                             cursor="pointer"
                             paddingY={{ base: '1rem' }}
-                            paddingX={{ base: '0.5rem' }}
-                            minWidth="130px"
+                            paddingX={{ base: '0.4rem' }}
+                            minWidth="120px"
                         >
                             <NavLink to="/contactus">Contact Us</NavLink>
                         </Box>
                     </Flex>
                 </Box>
                 {/* SEARCH */}
-                <Box order={[4, 3]} width={{ base: '100%', md: 'auto', lg: '250px' }}>
+                <Box order={[4, 3]} width={{ base: '100%', md: 'auto', lg: '240px' }}>
                     <Search />
                 </Box>
                 {/* ACTION */}

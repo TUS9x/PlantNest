@@ -1,9 +1,14 @@
 import { Accordion, AccordionButton, AccordionItem, AccordionIcon, AccordionPanel, Box } from '@chakra-ui/react';
 import Item from '../components/Item';
+import { useLocation } from 'react-router-dom';
 function PlantCatalog() {
+    const location = useLocation();
+    const searchParams = new URLSearchParams(location.search);
+    const defaultValue = searchParams.get('defaultValue')*1;
+    const defaultIndex = defaultValue ? [defaultValue] : [0];
     return (
         <>
-            <Accordion defaultIndex={[0]} allowMultiple>
+            <Accordion defaultIndex={defaultIndex} allowMultiple>
                 <AccordionItem>
                     <h2>
                         <AccordionButton>

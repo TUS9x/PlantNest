@@ -2,6 +2,7 @@ import { Flex, Image, CardFooter, Box, Card, CardBody, useToast } from '@chakra-
 import { MdOutlineAddShoppingCart, MdOutlineFavoriteBorder } from 'react-icons/md';
 import { useAppContext } from '~/App';
 import LoginModal from '~/component/LoginModal';
+
 function Item(props) {
     const toast = useToast();
     const { isLogin } = useAppContext()
@@ -11,7 +12,7 @@ function Item(props) {
                 <CardBody>
                     <Image
                         objectFit="cover"
-                        src="https://media.istockphoto.com/id/1372896722/photo/potted-banana-plant-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=bioeNAo7zEqALK6jvyGlxeP_Y7h6j0QjuWbwY4E_eP8="
+                        src={props.img}
                         alt="Item"
                         width="300px"
                     />
