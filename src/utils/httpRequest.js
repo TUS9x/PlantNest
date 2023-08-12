@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 const request = axios.create({
-    baseURL: 'https://jsonplaceholder.typicode.com/', //API endpoint (Diem cuoi truy cạp)
+    baseURL: 'http://localhost:8080/api/'
+    //baseURL: 'https://jsonplaceholder.typicode.com/', //API endpoint (Diem cuoi truy cạp)
 });
 
 export const get = async (path, option = {}) => {

@@ -20,14 +20,14 @@ function Products() {
     useEffect(() => {
         axios({
             method: 'get',
-            url: 'https://645b91baa8f9e4d6e76c3740.mockapi.io/producDoAn',
-            //url: 'http://localhost:8080/api/all_products',
+            //url: 'https://645b91baa8f9e4d6e76c3740.mockapi.io/producDoAn',
+            url: 'http://52.253.98.98:8080/api/all_products',
             //url:'https://my-json-server.typicode.com/typicode/demo/posts',
             data: {},
         })
             .then((response) => {
                 setProducts(response.data);
-                const max = last(orderBy(response.data, 'price')).price;
+                const max = last(orderBy(response.data, 'price')).prodPrice;
                 setPriceOnPoint(max);
                 setMaxPrice(max);
             })
@@ -35,7 +35,6 @@ function Products() {
                 console.error('Error fetching data:', error);
             });
     }, []);
-
     useLayoutEffect(() => {
         const searchLine = document.getElementById('searchLine');
         const eventOnLine = searchLine.addEventListener('click', (e) => {
@@ -122,10 +121,10 @@ function Products() {
             </div>
             <Box display={{ base: 'block', sm: 'grid' }} gridTemplateColumns="repeat(4,1fr)" gap={4} width="100%">
                 {products
-                .filter(item=>item.price<priceOnPoint)
+                .filter(item=>item.prodPrice<priceOnPoint)
                 .map((product, index) => {
                     while (index < limit) {
-                        return <Item name={product.name} key={product.id} price={product.price} />;
+                        return <Item name={product.prodName} key={product.prodID} price={product.prodPrice} />;
                     }
                 })}
             </Box>

@@ -38,7 +38,7 @@ function Search() {
     const searchData = useMemo(() => {
         if (!debounce?.length) return data;
         return data.filter((user) => {
-            const nameLowerCase = user.name.toLowerCase();
+            const nameLowerCase = user.prodName.toLowerCase();
             const debounceLowerCase = debounce.toLowerCase();
             return nameLowerCase.includes(debounceLowerCase);
         });
@@ -54,7 +54,7 @@ function Search() {
         return (
             <Stack w={'full'} divider={<StackDivider />} px={6} py={4}>
                 {searchData.map((product) => (
-                    <ProductItem key={product.id} data={product} />
+                    <ProductItem key={product.proID} data={product} />
                 ))}
             </Stack>
         );

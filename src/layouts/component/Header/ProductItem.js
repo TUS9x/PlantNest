@@ -9,7 +9,7 @@ function ProductItem({ data }) {
         <NavLink
             as={Link}
             to={{
-                pathname: `/product/${data.id}`,
+                pathname: `/product/${data.proID}`,
                 // state: { data: data },
             }}
         >
@@ -24,7 +24,7 @@ function ProductItem({ data }) {
                     />
                 </Box>
                 <Text fontWeight={'600'} color={'black'}>
-                    {data.name}
+                    {data.prodName}
                 </Text>
             </HStack>
         </NavLink>

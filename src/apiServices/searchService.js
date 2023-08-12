@@ -2,7 +2,7 @@ import * as request from '~/utils/httpRequest';
 
 export const getListUser = async (q, type = '') => {
     try {
-        const res = await request.get('users', {
+        const res = await request.get('all_products', {
             params: {
                 q, // q: q,
                 type, // type: type,
