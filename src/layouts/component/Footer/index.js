@@ -5,7 +5,7 @@ import { ImTwitter, ImFacebook, ImInstagram } from 'react-icons/im';
 function Footer() {
     return (
         <footer>
-            <div
+            <Box
                 maxWidth={'1440px'}
                 height={{ base: '', md: '159px' }}
                 mx={'auto'}
@@ -72,7 +72,7 @@ function Footer() {
                         </Box>
                     </GridItem>
                 </Grid>
-            </div>
+            </Box>
         </footer>
     );
 }

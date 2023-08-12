@@ -20,7 +20,7 @@ function Products() {
         axios({
             method: 'get',
             url: 'https://645b91baa8f9e4d6e76c3740.mockapi.io/producDoAn',
-            //url: 'http://52.253.98.98:8080/api/product',
+            //url: 'http://localhost:8080/api/all_products',
             //url:'https://my-json-server.typicode.com/typicode/demo/posts',
             data: {},
         })
