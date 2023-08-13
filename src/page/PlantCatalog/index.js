@@ -24,6 +24,7 @@ function PlantCatalog() {
                             gap={4}
                             width="100%"
                         >
+                            
                             <Item />
                             <Item />
                             <Item />
@@ -41,17 +42,27 @@ function PlantCatalog() {
                         </AccordionButton>
                     </h2>
                     <AccordionPanel pb={4}>
-                        <Box
+                    <Box
                             display={{ base: 'block', sm: 'grid' }}
                             gridTemplateColumns="repeat(4,1fr)"
                             gap={4}
                             width="100%"
                         >
-                            <Item />
-                            <Item />
-                            <Item />
-                            <Item />
+                            <Item  name={'Large Monstera Delicosa'}                                                    
+                                                    price={80}  
+                                                    img={'https://cdn.shopify.com/s/files/1/0150/6262/files/the-sill_Monstera-Deliciosa_Large_Mexia_Black_Variant.jpg?v=1687366508&width=400'} />
+                            <Item  name={'Faux Floor Cactus'} 
+
+                                                    price={325}  
+                                                    img={'https://cdn.shopify.com/s/files/1/0150/6262/files/the-sill_Faux_Variegated_Monstera_Large_Helena_Cream_Variant.jpg?v=1685669305&width=400'}/>
+                            <Item  name={'Statement Maker Dou'} 
+                                                    price={224}  
+                                                    img={'https://cdn.shopify.com/s/files/1/0150/6262/files/the-sill_StatementMakerDuo_Pallas_Cream_Variant.jpg?v=1690830964&width=400'}/>
+                            <Item  name={'Kalanchoe Flapjack'} 
+                                                    price={48}  
+                                                    img={'https://cdn.shopify.com/s/files/1/0150/6262/files/the-sill_Kalanchoe-Flapjack_Small_Hyde_Mint_Variant.jpg?v=1691008744&width=400'}/>
                         </Box>
+                        
                     </AccordionPanel>
                 </AccordionItem>
                 <AccordionItem>

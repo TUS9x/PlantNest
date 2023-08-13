@@ -1,21 +1,36 @@
 import { Button, Flex, Heading, Link, Stack, HStack, Text, Select, Box, Image } from '@chakra-ui/react';
-import React, { useContext, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FiGift } from 'react-icons/fi';
 import { MdOutlineCancel } from 'react-icons/md';
 import { NavLink } from 'react-router-dom';
+import axios from 'axios';
+import { apiUrl } from '~/configs';
 function Cart() {
     var total = 0;
+    const [cartItems, setCartItems] = useState([]);
+    useEffect(() => {
+        axios({
+            method: 'get',
+            //url: 'https://645b91baa8f9e4d6e76c3740.mockapi.io/producDoAn',
+            url: `${apiUrl}/api/cart/detail/3`,
+            data: {},
+        })
+            .then(response => setCartItems(response.data))
+            .catch((error) => {
+                console.error('Error fetching data:', error);
+            })
+    }, []);
     return (
         <React.Fragment>
             <Box maxW={{ lg: '7xl' }} mx="auto" px={{ base: '4', md: '8' }} py={{ base: '6', md: '8' }}>
                 <Stack direction={{ base: 'column', lg: 'row' }} align={{ lg: 'flex-start' }} spacing={{ base: '8' }}>
                     <Stack spacing={{ base: '8', md: '10' }} flex="2">
                         <Heading fontSize="2xl" fontWeight="extrabold">
-                            Shopping Cart (X items)
+                            Shopping Cart
                         </Heading>
-                        {/* <Stack spacing="6">
-                            {context.cart.length <= 0 && <p>No Item in the Cart!</p>}
-                            {context.cart.map((cartItem) => (
+                        <Stack spacing="6">
+                            {cartItems.length <= 0 && <p>No Item in the Cart!</p>}
+                            {cartItems.cart.map((cartItem) => (
                                 <Box key="item.id">
                                     <Flex direction={{ base: 'column', md: 'row' }} align="center" width="full">
                                         <Flex direction="row" justifyContent="space-between">
@@ -60,7 +75,7 @@ function Cart() {
                                             </Flex>
                                             <Box pt="50px" pl="50px" _hover={{ color: 'red.500' }} fontSize="4xl">
                                                 <MdOutlineCancel
-                                                    onClick={context.upDate.bind(this, cartItem.id)}
+                                                    onClick={cartItem.upDate.bind(this, cartItem.id)}
                                                     onChange={(e) => {
                                                         cartItem.quantity = e.target.value;
                                                         console.log(cartItem.quantity);
@@ -72,7 +87,7 @@ function Cart() {
                                     </Flex>
                                 </Box>
                             ))}
-                        </Stack> */}
+                        </Stack>
                     </Stack>
                     <Stack spacing="8" borderWidth="1px" rounded="lg" padding="8" width="40%" marginTop="50px">
                         <Heading size="md">Order Summary</Heading>

@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Grid, GridItem, Text } from '@chakra-ui/layout';
 import { Img } from '@chakra-ui/image';
-import { Button, Input, Flex, Box, Image, HStack, Stack, AspectRatio } from '@chakra-ui/react';
+import { Button, Input, Flex, Box, Image, HStack, Stack, AspectRatio, useToast } from '@chakra-ui/react';
 import { apiUrl } from '~/configs';
 
 import RatingStars from './RatingStar';
@@ -34,6 +34,7 @@ function ProductionInfor(props) {
     const [loading, setLoading] = useState(false);
     const [quantity, setQuantity] = useState(1);
     const [activeButton, setActiveButton] = useState(null);
+    const toast = useToast();
     const { id } = useParams();
 
     const handleDecrease = () => {
@@ -83,6 +84,7 @@ function ProductionInfor(props) {
     const handleImg = (src) => {
         setHinhanh(src);
     };
+    
     return <Flex flexWrap={'wrap'}>
         <Wrapper aria-label={'image'} spacing={4}>
             <AspectRatio maxW='400px' ratio={4 / 3}>
@@ -149,7 +151,18 @@ function ProductionInfor(props) {
                         </Button>
                     </Box>
                 </Flex>
-                <Button colorScheme={'blue'} leftIcon={<AddIcon/>}>
+                <Button colorScheme={'green'} 
+                    onClick={() => (
+                        toast({
+                            title: 'Shopping ADD',
+                            description: '',
+                            status: 'success',
+                            duration: 9000,
+                            isClosable: true,
+                        }),
+                        props.addToCart
+                    )}
+                    leftIcon={<AddIcon/>}>
                     Add to card
                 </Button>
             </Wrapper>

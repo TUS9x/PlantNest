@@ -173,6 +173,8 @@ function Header() {
                                     </MenuButton>
                                     <MenuList>
                                         <MenuItem color={'black'} onClick={handleLogout}>Log out</MenuItem>
+                                        <MenuItem color={'black'}>Profile</MenuItem>
+                                        <MenuItem color={'black'}>Settings</MenuItem>
                                     </MenuList>
                                 </Menu>
                                  : <LoginModal>
