@@ -52,11 +52,10 @@ function Header() {
                 </Button>
                 {/* LOGO */}
                 <Box
-                    fontSize={{ base: '2xl', lg: '3xl' }}
                     fontWeight="bold"
                     paddingY= '0.5rem' 
                     order={[2, 1, 1]}
-                    width='200px'
+                    width='205px'
                 >
                     <NavLink to="/" bg='gray.400'> <Image  objectFit={'cover'} src="../nest-white5.png"/></NavLink>
                 </Box>
@@ -169,7 +168,7 @@ function Header() {
                             {isLogin ?
                                 <Menu>
                                     <MenuButton>
-                                        <Avatar name={'Hoang Son'}/>
+                                        <Avatar name={'Hoang Son'} boxSize="2.4rem"/>
                                     </MenuButton>
                                     <MenuList>
                                         <MenuItem color={'black'} onClick={handleLogout}>Log out</MenuItem>
@@ -178,7 +177,7 @@ function Header() {
                                     </MenuList>
                                 </Menu>
                                  : <LoginModal>
-                                <Icon as={CiUser} boxSize="2.5rem" />
+                                <Icon as={CiUser} boxSize="2.4rem" />
                             </LoginModal>}
                             </NavLink>
                         </Box>
@@ -186,8 +185,7 @@ function Header() {
                             <NavLink to="/cart">
                                 <Box display="flex">
                                     <Icon as={CiShoppingCart} boxSize="2.5rem" />
-                                    <Box>0</Box>
-                                     
+                                    <Box>0</Box>    
                                 </Box>
                             </NavLink>
                         </Box>

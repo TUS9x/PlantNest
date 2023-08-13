@@ -4,8 +4,8 @@ import { useLocation } from 'react-router-dom';
 function PlantCatalog() {
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
-    const defaultValue = searchParams.get('defaultValue')*1;
-    const defaultIndex = defaultValue ? [defaultValue] : [0];
+    const defaultValue = searchParams.get('defaultValue');
+    const defaultIndex = defaultValue ? [defaultValue] : [1];
     return (
         <>
             <Accordion defaultIndex={defaultIndex} allowMultiple>
